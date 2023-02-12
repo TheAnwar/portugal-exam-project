@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { SharedModule } from 'src/shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { LoginComponent } from './auth/login/login.component';
@@ -18,7 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
     RegisterComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [SharedModule, BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

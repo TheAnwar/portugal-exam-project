@@ -15,5 +15,9 @@ export class NavbarComponent {
       name: 'Login',
       path: 'login',
     },
+    {
+      name: 'Exam',
+      path: 'exam',
+    },
   ];
 }
