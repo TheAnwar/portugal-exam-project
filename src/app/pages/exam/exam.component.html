@@ -1,1 +1,31 @@
-<p>exam works!</p>
+<div class="flex container">
+  <div class="flex-1">
+    <app-question-group></app-question-group>
+  </div>
+  <div class="flex-1">
+    <div [ngSwitch]="currentModality">
+      <div *ngSwitchCase="modalities[0].code">
+        <app-ra></app-ra>
+      </div>
+      <div *ngSwitchCase="modalities[1].code">
+        <app-em></app-em>
+      </div>
+
+      <div *ngSwitchDefault>modality didn't match</div>
+    </div>
+  </div>
+</div>
+
+<!-- navigation -->
+<div class="flex fixed bottom-10 gap-10 items-center container justify-between">
+  <div>
+    <button (click)="navigateModality('prev')">Previous</button>
+  </div>
+  <div>
+    {{ currentModality | uppercase }}
+  </div>
+  <div>{{ currentModalityIndex + 1 }} / {{ modalities.length }}</div>
+  <div>
+    <button (click)="navigateModality('next')">Next</button>
+  </div>
+</div>
