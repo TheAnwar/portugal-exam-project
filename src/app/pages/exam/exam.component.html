@@ -10,6 +10,36 @@
       <div *ngSwitchCase="modalities[1].code">
         <app-ra2></app-ra2>
       </div>
+      <div *ngSwitchCase="modalities[2].code">
+        <app-ra3></app-ra3>
+      </div>
+      <div *ngSwitchCase="modalities[3].code">
+        <app-em></app-em>
+      </div>
+      <div *ngSwitchCase="modalities[4].code">
+        <app-modality-emi></app-modality-emi>
+      </div>
+      <div *ngSwitchCase="modalities[5].code">
+        <app-modality-emj></app-modality-emj>
+      </div>
+      <div *ngSwitchCase="modalities[6].code">
+        <app-modality-emm></app-modality-emm>
+      </div>
+      <div *ngSwitchCase="modalities[7].code">
+        <app-modality-or></app-modality-or>
+      </div>
+      <div *ngSwitchCase="modalities[8].code">
+        <app-modality-vf></app-modality-vf>
+      </div>
+      <div *ngSwitchCase="modalities[9].code">
+        <app-modality-dg></app-modality-dg>
+      </div>
+      <div *ngSwitchCase="modalities[10].code">
+        <app-modality-dd></app-modality-dd>
+      </div>
+      <div *ngSwitchCase="modalities[11].code">
+        <app-modality-eq></app-modality-eq>
+      </div>
 
       <div *ngSwitchDefault>modality didn't match</div>
     </div>

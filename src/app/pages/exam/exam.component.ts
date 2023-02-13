@@ -21,7 +21,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'ra2';
+  currentModality = 'eq';
 
   navigateModality(direction: 'next' | 'prev') {
     const currentIndex = this.modalities.findIndex(
