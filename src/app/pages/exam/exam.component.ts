@@ -21,7 +21,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'eq';
+  currentModality = 'emi';
 
   navigateModality(direction: 'next' | 'prev') {
     const currentIndex = this.modalities.findIndex(
@@ -39,5 +39,9 @@ export class ExamComponent {
 
   get currentModalityIndex() {
     return this.modalities.findIndex((m) => m.code === this.currentModality);
+  }
+
+  endExam() {
+    console.log('end exam');
   }
 }

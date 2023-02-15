@@ -1,3 +1,24 @@
 <div class="container">
-  <h1>welcome</h1>
+  <div class="text-center py-10">
+    <h1 class="text-4xl font-bold mb-2">Bem-vindo ao EXA, (User name)</h1>
+    <p class="text-[#6A99D0] font-medium">ESCOLHE A(S) TUA(S) DISCIPLINAS</p>
+  </div>
+
+  <div class="grid grid-cols-4 gap-6 mb-10 max-w-2xl mx-auto">
+    <div
+      *ngFor="let item of cards; index as i"
+      class="p-6 bg-[#F2F2F2] text-center border-[2px] cursor-pointer"
+      (click)="selectCard(i)"
+      [ngClass]="{ 'box-active': item.selected }"
+    >
+      <img [src]="item.icon" class="mx-auto max-h-12 mb-4" />
+      <strong>
+        {{ item.name }}
+      </strong>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <button class="bg-[#70ad47] py-2 px-4 rounded text-white">Começar</button>
+  </div>
 </div>

@@ -1,22 +1,13 @@
 <div class="grid grid-cols-2 gap-4 pt-5">
-  <img
-    class="w-[320px] h-[220px]"
-    src="/assets/images/image-opt.png"
-    alt="option-img"
-  />
-  <img
-    class="w-[320px] h-[220px]"
-    src="/assets/images/image-opt.png"
-    alt="option-img"
-  />
-  <img
-    class="w-[320px] h-[220px]"
-    src="/assets/images/image-opt.png"
-    alt="option-img"
-  />
-  <img
-    class="w-[320px] h-[220px]"
-    src="/assets/images/image-opt.png"
-    alt="option-img"
-  />
+  <label for="checkbox-{{ i }}" *ngFor="let item of [1, 1, 1, 1]; index as i">
+    <input type="checkbox" id="checkbox-{{ i }}" />
+    <div class="p-4 flex gap-3 checkbox">
+      <p>A</p>
+      <img
+        class="object-contain w-full"
+        src="/assets/images/image-opt.png"
+        alt="option-img"
+      />
+    </div>
+  </label>
 </div>

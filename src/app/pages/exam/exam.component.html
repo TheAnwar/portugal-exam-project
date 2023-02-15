@@ -1,8 +1,10 @@
-<div class="flex container">
-  <div class="flex-1">
+<div class="flex container gap-10 py-10">
+  <div class="flex-1 aside">
     <app-question-group></app-question-group>
   </div>
-  <div class="flex-1">
+  <!-- vertical divider -->
+  <div class="w-1 h-full bg-gray-300"></div>
+  <div class="flex-1 aside">
     <div [ngSwitch]="currentModality">
       <div *ngSwitchCase="modalities[0].code">
         <app-ra></app-ra>
@@ -46,16 +48,30 @@
   </div>
 </div>
 
-<!-- navigation -->
-<div class="flex fixed bottom-10 gap-10 items-center container justify-between">
-  <div>
-    <button (click)="navigateModality('prev')">Previous</button>
+<nav
+  class="border-gray-200 px-2 sm:px-4 py-2.5 bg-primary fixed bottom-0 inset-x-0 gap-10 text-white"
+>
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <div>
+      <button (click)="endExam()" class="end-btn">Sair deste exame</button>
+    </div>
+
+    <div>
+      {{ currentModality | uppercase }}
+    </div>
+    <div>{{ currentModalityIndex + 1 }} / {{ modalities.length }}</div>
+
+    <div class="flex gap-6">
+      <div>
+        <button (click)="navigateModality('prev')" class="hover:underline">
+          Previous
+        </button>
+      </div>
+      <div>
+        <button (click)="navigateModality('next')" class="hover:underline">
+          Next
+        </button>
+      </div>
+    </div>
   </div>
-  <div>
-    {{ currentModality | uppercase }}
-  </div>
-  <div>{{ currentModalityIndex + 1 }} / {{ modalities.length }}</div>
-  <div>
-    <button (click)="navigateModality('next')">Next</button>
-  </div>
-</div>
+</nav>

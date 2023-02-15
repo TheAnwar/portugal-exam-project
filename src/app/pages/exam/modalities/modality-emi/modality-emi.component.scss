@@ -1,0 +1,31 @@
+:host {
+  /* Style the label */
+  label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+  }
+
+  /* Style the checkbox */
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Style the image */
+  img {
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  // label has input checked then label img is white
+  input[type="checkbox"]:checked + .checkbox {
+    background-color: aquamarine;
+  }
+}
