@@ -9,6 +9,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MainComponent } from './layout/main/main.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    PaymentComponent,
+    DashboardComponent,
   ],
   imports: [SharedModule, BrowserModule, AppRoutingModule],
   providers: [],

@@ -1,1 +1,107 @@
-<p>register works!</p>
+<div>
+  <div class="flex">
+    <div class="w-3/5 flex flex-col pl-28 justify-center">
+      <h1 class="text-4xl"><strong>A minha </strong>subscrição</h1>
+      <form class="w-full pt-8 flex flex-col">
+        <label class="font-bold text-lg pt-3" for="email"
+          >Plano selecionado
+        </label>
+        <input
+          class="border border-[#4472c4] p-2 w-3/4"
+          type="email"
+          placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames
+          "
+        />
+
+        <label class="font-bold text-lg pt-3" for="password"
+          >Em vigor desde
+        </label>
+        <input
+          class="border border-[#4472c4] p-2 w-3/4"
+          type="text"
+          placeholder="Data de subscrição"
+        />
+        <label class="font-bold text-lg pt-3" for="password">Expira a </label>
+        <input
+          class="border border-[#4472c4] p-2 w-3/4"
+          type="text"
+          placeholder="Data de subscrição  + 1 mes"
+        />
+      </form>
+    </div>
+
+    <div class="h-[100vh] w-full bg-[#deebf7]">
+      <div class="flex items-center justify-center gap-2">
+        <div class="flex flex-col items-center justify-center h-[100vh]">
+          <div
+            class="border-black border-2 p-6 bg-white absolute bottom-[395px] z-10"
+          ></div>
+          <div
+            class="text-center shadow-2xl border-2 border-[#b5cff5] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+          >
+            <h3 class="text-2xl font-bold text-[#00216e]">Básico</h3>
+            <p class="w-48">1 Disciplina | 10 Exames | 1 Mês</p>
+            <div
+              class="text-center -mb-20 pt-4 flex flex-col items-center gap-2"
+            >
+              <button class="bg-[#00216e] text-white py-1 px-4 rounded-full">
+                <del>7,99€/mês</del>
+              </button>
+              <button
+                class="bg-[#00216e] text-lg py-2 px-6 font-bold text-white rounded-full"
+              >
+                4,99€/mês*
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center h-[100vh]">
+          <div
+            class="border-[#a6a6a6] border-2 p-6 bg-white absolute bottom-[395px] z-10"
+          ></div>
+          <div
+            class="text-center shadow-2xl border-2 border-[#a6a6a6] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+          >
+            <h3 class="text-2xl font-bold text-[#a6a6a6]">Premium</h3>
+            <p class="w-48">2 Disciplina | 20 Exames | 1 Mês</p>
+            <div
+              class="text-center -mb-20 pt-4 flex flex-col items-center gap-2"
+            >
+              <button class="bg-[#a6a6a6] text-white py-1 px-4 rounded-full">
+                <del>19,99€/mês</del>
+              </button>
+              <button
+                class="bg-[#a6a6a6] text-lg py-2 px-6 font-bold text-white rounded-full"
+              >
+                14,99€/mês*
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center h-[100vh]">
+          <div
+            class="border-black border-2 p-6 bg-white absolute bottom-[395px] z-10"
+          ></div>
+          <div
+            class="text-center shadow-2xl border-2 border-[#a6d699] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+          >
+            <h3 class="text-2xl font-bold text-[#70ad47]">Oferta limitada</h3>
+            <p class="w-48">Todas as Disciplinas | Todos os exames | 1 Mês</p>
+            <div
+              class="text-center -mb-20 pt-4 flex flex-col items-center gap-2"
+            >
+              <button class="bg-[#70ad47] text-white py-1 px-4 rounded-full">
+                <del>29,99€/mês</del>
+              </button>
+              <button
+                class="bg-[#70ad47] text-lg py-2 px-6 font-bold text-white rounded-full"
+              >
+                24,99€/mês*
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
