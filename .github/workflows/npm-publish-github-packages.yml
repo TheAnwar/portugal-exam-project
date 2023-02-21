@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci || npm install
-      - run: ng build --base-href /portugal-exam-project/ --deploy-url /portugal-exam-project/ --if-present
+      - run: npm run bg --if-present
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
