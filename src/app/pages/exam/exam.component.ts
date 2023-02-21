@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-exam',
@@ -21,7 +21,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'ra3';
+  currentModality = 'or';
 
   navigateModality(direction: 'next' | 'prev') {
     const currentIndex = this.modalities.findIndex(
@@ -35,6 +35,16 @@ export class ExamComponent {
     }
 
     this.currentModality = this.modalities[nextIndex].code;
+  }
+
+  // click event on right and left arrow to navigate
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'ArrowRight') {
+      this.navigateModality('next');
+    } else if (event.key === 'ArrowLeft') {
+      this.navigateModality('prev');
+    }
   }
 
   get currentModalityIndex() {

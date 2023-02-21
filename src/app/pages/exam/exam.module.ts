@@ -17,6 +17,8 @@ import { ModalityDgComponent } from './modalities/modality-dg/modality-dg.compon
 import { ModalityDdComponent } from './modalities/modality-dd/modality-dd.component';
 import { ModalityEqComponent } from './modalities/modality-eq/modality-eq.component';
 import { DrawableModule } from 'src/app/components/drawable/drawable.component';
+import { ChooseExamComponent } from './choose-exam/choose-exam.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { DrawableModule } from 'src/app/components/drawable/drawable.component';
     ModalityDgComponent,
     ModalityDdComponent,
     ModalityEqComponent,
+    ChooseExamComponent,
   ],
-  imports: [SharedModule, DrawableModule, ExamRoutingModule],
+  imports: [SharedModule, DrawableModule, DragDropModule, ExamRoutingModule],
 })
 export class ExamModule {}

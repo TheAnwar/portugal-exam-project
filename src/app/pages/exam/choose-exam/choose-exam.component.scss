@@ -1,0 +1,28 @@
+.pill {
+  cursor: pointer;
+  @apply py-1 px-2 rounded-md shadow-lg;
+
+  p {
+    @apply font-bold text-center;
+  }
+}
+
+.odd {
+  background-color: #4f71be;
+  color: white;
+}
+
+.even {
+  background-color: #385492;
+  color: white;
+}
+
+.passed {
+  background-color: #7eab55;
+  color: white;
+}
+
+.failed {
+  background-color: #e74c3c;
+  color: white;
+}
