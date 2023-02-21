@@ -16,9 +16,26 @@ import { ModalityVfComponent } from './modalities/modality-vf/modality-vf.compon
 import { ModalityDgComponent } from './modalities/modality-dg/modality-dg.component';
 import { ModalityDdComponent } from './modalities/modality-dd/modality-dd.component';
 import { ModalityEqComponent } from './modalities/modality-eq/modality-eq.component';
+import { DrawableModule } from 'src/app/components/drawable/drawable.component';
 
 @NgModule({
-  declarations: [ExamComponent, QuestionGroupComponent, RaComponent, EmComponent, Ra2Component, Ra3Component, ModalityEmComponent, ModalityEmiComponent, ModalityEmjComponent, ModalityEmmComponent, ModalityOrComponent, ModalityVfComponent, ModalityDgComponent, ModalityDdComponent, ModalityEqComponent],
-  imports: [SharedModule, ExamRoutingModule],
+  declarations: [
+    ExamComponent,
+    QuestionGroupComponent,
+    RaComponent,
+    EmComponent,
+    Ra2Component,
+    Ra3Component,
+    ModalityEmComponent,
+    ModalityEmiComponent,
+    ModalityEmjComponent,
+    ModalityEmmComponent,
+    ModalityOrComponent,
+    ModalityVfComponent,
+    ModalityDgComponent,
+    ModalityDdComponent,
+    ModalityEqComponent,
+  ],
+  imports: [SharedModule, DrawableModule, ExamRoutingModule],
 })
 export class ExamModule {}

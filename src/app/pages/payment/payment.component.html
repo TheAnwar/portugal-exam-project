@@ -1,45 +1,156 @@
-<div class="flex flex-col justify-center items-center bg-[#deebf7] h-52">
-  <h1 class="text-5xl font-bold">Olá, (User name)</h1>
-  <h4 class="text-lg font-bold pt-2 pb-2">Que exames queres praticar hoje?</h4>
-  <p class="border-2 border-[#4472c4] p-3 w-96 bg-white">Português</p>
+<div class="flex" *ngIf="step === 1">
+  <div class="w-3/5 flex flex-col pl-28 justify-center">
+    <h1 class="text-4xl"><strong>A minha </strong>subscrição</h1>
+    <form class="w-full pt-8 flex flex-col">
+      <label class="font-bold text-lg pt-3" for="email"
+        >Plano selecionado
+      </label>
+      <input
+        class="border border-[#4472c4] p-2 w-3/4"
+        type="email"
+        placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames
+          "
+      />
+
+      <label class="font-bold text-lg pt-3" for="password"
+        >Em vigor desde
+      </label>
+      <input
+        class="border border-[#4472c4] p-2 w-3/4"
+        type="text"
+        placeholder="Data de subscrição"
+      />
+      <label class="font-bold text-lg pt-3" for="password">Expira a </label>
+      <input
+        class="border border-[#4472c4] p-2 w-3/4"
+        type="text"
+        placeholder="Data de subscrição  + 1 mes"
+      />
+    </form>
+  </div>
+
+  <div
+    class="h-[100vh] bg-[#deebf7] flex flex-col justify-center w-full"
+    (click)="step = 2"
+  >
+    <div class="flex items-center justify-center gap-2">
+      <div class="flex flex-col items-center justify-center h-[100vh]">
+        <div
+          class="text-center shadow-2xl border-2 border-[#b5cff5] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+        >
+          <h3 class="text-2xl font-bold text-[#00216e]">Básico</h3>
+          <p class="w-48">1 Disciplina | 10 Exames | 1 Mês</p>
+          <div class="text-center -mb-20 pt-4 flex flex-col items-center gap-2">
+            <button class="bg-[#00216e] text-white py-1 px-4 rounded-full">
+              <del>7,99€/mês</del>
+            </button>
+            <button
+              class="bg-[#00216e] text-lg py-2 px-6 font-bold text-white rounded-full"
+            >
+              4,99€/mês*
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center h-[100vh]">
+        <div
+          class="text-center shadow-2xl border-2 border-[#a6a6a6] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+        >
+          <h3 class="text-2xl font-bold text-[#a6a6a6]">Premium</h3>
+          <p class="w-48">2 Disciplina | 20 Exames | 1 Mês</p>
+          <div class="text-center -mb-20 pt-4 flex flex-col items-center gap-2">
+            <button class="bg-[#a6a6a6] text-white py-1 px-4 rounded-full">
+              <del>19,99€/mês</del>
+            </button>
+            <button
+              class="bg-[#a6a6a6] text-lg py-2 px-6 font-bold text-white rounded-full"
+            >
+              14,99€/mês*
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center h-[100vh]">
+        <div
+          class="text-center shadow-2xl border-2 border-[#a6d699] py-12 px-10 rounded-[70px] relative flex flex-col bg-white"
+        >
+          <h3 class="text-2xl font-bold text-[#70ad47]">Oferta limitada</h3>
+          <p class="w-48">Todas as Disciplinas | Todos os exames | 1 Mês</p>
+          <div class="text-center -mb-20 pt-4 flex flex-col items-center gap-2">
+            <button class="bg-[#70ad47] text-white py-1 px-4 rounded-full">
+              <del>29,99€/mês</del>
+            </button>
+            <button
+              class="bg-[#70ad47] text-lg py-2 px-6 font-bold text-white rounded-full"
+            >
+              24,99€/mês*
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="bg-white pt-9">
-  <div class="flex items-center justify-center gap-20">
-    <div class="bg-[#f2f2f2] pt-6 px-20 shadow-2xl w-[350px] h-[350px]">
-      <h2 class="text-2xl font-bold pb-4">O meu perfil</h2>
-      <img src="/assets/images/hi-img.png" alt="hi-img" />
-      <button
-        class="bg-[#00216e] text-white font-semibold py-4 px-8 rounded-2xl"
-      >
-        Alterar dados
-      </button>
+
+<div class="flex justify-between" *ngIf="step === 2">
+  <div class="flex flex-col justify-center w-full">
+    <div class="pl-[200px]">
+      <h1 class="text-4xl font-bold pl-28">Pagamento</h1>
+      <form class="w-full pt-6 flex flex-col justify-center">
+        <label class="font-bold text-lg pt-3" for="email"
+          >Plano selecionado
+        </label>
+        <input
+          class="border border-[#4472c4] p-2 w-2/4"
+          type="email"
+          placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames"
+        />
+
+        <label class="font-bold text-lg pt-3" for="password"
+          >Número do cartão
+        </label>
+        <input
+          class="border border-[#4472c4] p-2 w-2/4"
+          type="text"
+          placeholder="Data de subscrição"
+        />
+        <div class="flex items-center justify-between w-2/4 pt-3">
+          <p>
+            <label class="font-bold text-lg pt-3" for="date"
+              >Data de validade</label
+            >
+            <br />
+            <input class="border border-[#4472c4] p-2 w-full" type="date" />
+          </p>
+          <p>
+            <label class="font-bold text-lg pt-3" for="text">CSV</label> <br />
+            <input class="border border-[#4472c4] p-2 w-full" type="text" />
+          </p>
+        </div>
+        <label class="font-bold text-lg pt-3" for="password"
+          >Nome no cartão</label
+        >
+        <input
+          class="border border-[#4472c4] p-2 w-2/4"
+          type="text"
+          placeholder="Data de subscrição  + 1 mes"
+        />
+      </form>
+      <div>
+        <button
+          routerLink="/dashboard"
+          class="bg-[#70ad47] text-white text-lg ml-20 font-semibold py-2 px-6 w-1/4 rounded-2xl mt-10"
+        >
+          Efetuar pagamento e alterar subscrição
+        </button>
+      </div>
     </div>
-    <div
-      class="bg-[#f2f2f2] pt-6 px-20 text-center shadow-2xl w-[350px] h-[350px]"
-    >
-      <h2 class="text-2xl font-bold pb-4 text-[#4472c4]">
-        Praticar escolhas múltiplas
-      </h2>
-      <img class="pb-4 pl-5" src="/assets/images/pc-1.png" alt="pc-1" />
-      <button
-        class="bg-[#4472c4] text-white font-semibold py-4 px-12 rounded-2xl"
-      >
-        Começar
-      </button>
-    </div>
-    <div
-      class="bg-[#f2f2f2] pt-6 px-20 shadow-2xl w-[350px] text-center h-[350px]"
-    >
-      <h2 class="text-2xl font-bold pb-4 text-[#70ad47]">
-        Fazer <br />
-        um exame
-      </h2>
-      <img class="pb-4 pl-5" src="/assets/images/pc-1.png" alt="pc-1" />
-      <button
-        class="bg-[#70ad47] text-white font-semibold py-4 px-8 rounded-2xl"
-      >
-        Escolher exame
-      </button>
-    </div>
+  </div>
+  <div>
+    <img
+      class="h-[100vh] w-full"
+      src="/assets/images/dashboard-img.png"
+      alt="dashboard-img"
+    />
   </div>
 </div>
