@@ -5,12 +5,26 @@
   <!-- vertical divider -->
   <div class="w-[1px] bg-gray-300"></div>
   <div class="flex-1 aside">
+    <div class="mb-4">
+      <h3 class="text-lg font-bold">
+        Question: {{ currentModalityIndex + 1 }} /
+        {{ modalities.length }} ------
+        {{ currentModality | uppercase }}
+      </h3>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+        modi, minima corporis quos nostrum fugit optio provident fuga culpa
+        illum alias numquam, laborum ea ut eligendi quibusdam omnis consectetur
+        porro.
+      </p>
+    </div>
+
     <div [ngSwitch]="currentModality">
-      <div *ngSwitchCase="modalities[0].code">
-        <app-ra></app-ra>
+      <div *ngSwitchCase="'ra'">
+        <app-ra type="long"></app-ra>
       </div>
-      <div *ngSwitchCase="modalities[1].code">
-        <app-ra2></app-ra2>
+      <div *ngSwitchCase="'ra2'">
+        <app-ra type="short"></app-ra>
       </div>
       <div *ngSwitchCase="modalities[2].code">
         <app-ra3></app-ra3>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "styles/radio.scss";
+
 .button {
   @apply bg-[#70ad47] py-3 px-4 rounded text-white;
   @apply hover:bg-[#64a33b];

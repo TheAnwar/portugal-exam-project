@@ -1,32 +1,38 @@
 <div class="">
+  <p class="mb-4">{{ type === "long" ? "Long" : "Short" }} answer</p>
+
   <textarea
-    name=""
-    id=""
+    placeholder="Type your answer here..."
     cols="60"
     rows="8"
     class="w-full h-36 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
   ></textarea>
 
-  <div class="flex items-start justify-start pt-8">
-    <button class="bg-[#a5a5a5] py-2 px-4 rounded text-white">
-      (-) Close additional correction criteria
-    </button>
+  <div class="flex items-end justify-end pt-2" *ngIf="!isSubmitted">
+    <button class="button" (click)="isSubmitted = true">Submit answer</button>
   </div>
 
-  <div class="pt-5">
-    <h5 class="text-[#629fd7]">Correction criteria</h5>
-    <p>Text with correction criteria</p>
-    <span>....</span> <br />
-    <span>......</span> <br />
-    <span>....</span>
+  <div *ngIf="isSubmitted">
+    <div class="flex items-start justify-start pt-8">
+      <button class="bg-[#a5a5a5] py-2 px-4 rounded text-white">
+        (-) Close additional correction criteria
+      </button>
+    </div>
+    <div class="pt-5">
+      <h5 class="text-[#629fd7]">Correction criteria</h5>
+      <p>Text with correction criteria</p>
+      <span>....</span> <br />
+      <span>......</span> <br />
+      <span>....</span>
+    </div>
+    <div class="flex items-start justify-start pt-8">
+      <button class="bg-[#a5a5a5] py-2 px-4 rounded text-white">
+        (+) See additional correction criteria
+      </button>
+    </div>
   </div>
 
-  <div class="flex items-start justify-start pt-8">
-    <button class="bg-[#a5a5a5] py-2 px-4 rounded text-white">
-      (+) See additional correction criteria
-    </button>
-  </div>
-  <div class="flex items-end justify-end pt-2">
-    <button class="button">Submit answer</button>
+  <div class="flex items-end justify-end pt-6" *ngIf="isSubmitted">
+    <button class="button">Next question button</button>
   </div>
 </div>

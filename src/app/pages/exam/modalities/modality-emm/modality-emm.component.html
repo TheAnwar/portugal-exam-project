@@ -1,88 +1,24 @@
-<div class="flex pt-12 gap-x-2">
-  <div class="flex flex-col gap-3 w-2/4">
-    <p class="border py-6 px-2 border-[#4472c4]">
-      (A) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie
-      Curie
-    </p>
-    <p class="border py-6 px-2 border-[#4472c4]">
-      (B) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie
-      Curie
-    </p>
-    <p class="border py-6 px-2 border-[#4472c4]">
-      (C) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie
-      Curie
-    </p>
-    <p class="border py-6 px-2 border-[#4472c4]">
-      (D) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie
-      Curie
-    </p>
-  </div>
-
-  <div class="w-[300px] flex flex-col gap-4">
-    <form class="border-2 p-1">
-      <div class="radiobtn">
-        <input type="radio" id="Nasim" name="answer" value="Nasim" checked />
-        <label for="Nasim">1. Nasim</label>
+<div class="mb-4">
+  <div class="flex flex-col gap-2">
+    <div class="border py-6 px-2 flex" *ngFor="let q of [1, 2, 3]">
+      <div class="w-3/5">
+        (A) No seculo passado, a Fundacao Nobel ____________ dois premios a
+        Marie Curie
       </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Nasima" name="answer" value="Nasima" />
-        <label for="Nasima">2. Nasima</label>
+      <div class="w-2/5">
+        <form>
+          <div class="radiobtn" *ngFor="let item of [1, 2, 3]">
+            <input
+              type="radio"
+              id="option{{ q }}{{ item }}"
+              name="answer{{ q }}"
+              value="Nasim{{ item }}"
+            />
+            <label for="option{{ q }}{{ item }}"> option {{ item }} </label>
+          </div>
+        </form>
       </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Nazma" name="answer" value="Nazma" />
-        <label for="Nazma">3. Nazma</label>
-      </div>
-    </form>
-    <form class="border-2 p-1">
-      <div class="radiobtn">
-        <input type="radio" id="Rahim" name="answer" value="Rahim" checked />
-        <label for="Rahim">1. Rahim</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Rahima" name="answer" value="Rahima" />
-        <label for="Rahima">2. Rahima</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Rahman" name="answer" value="Rahman" />
-        <label for="Rahman">3. Rahman</label>
-      </div>
-    </form>
-    <form class="border-2 p-1">
-      <div class="radiobtn">
-        <input type="radio" id="Mamun" name="answer" value="Mamun" checked />
-        <label for="Mamun">1. Mamun</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Maimuna" name="answer" value="Maimuna" />
-        <label for="Maimuna">2. Maimuna</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Mahmud" name="answer" value="Mahmud" />
-        <label for="Mahmud">3. Mahmud</label>
-      </div>
-    </form>
-    <form class="border-2 p-1">
-      <div class="radiobtn">
-        <input type="radio" id="Tamim" name="answer" value="Tamim" checked />
-        <label for="Tamim">1. Tamim</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Tamima" name="answer" value="Tamima" />
-        <label for="Tamima">2. Tamima</label>
-      </div>
-
-      <div class="radiobtn">
-        <input type="radio" id="Tamanna" name="answer" value="Tamanna" />
-        <label for="Tamanna">3. Tamanna</label>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 <div class="flex items-end justify-end pt-6">

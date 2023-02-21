@@ -21,12 +21,10 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'or';
+  currentModality = 'vf';
 
   navigateModality(direction: 'next' | 'prev') {
-    const currentIndex = this.modalities.findIndex(
-      (m) => m.code === this.currentModality
-    );
+    const currentIndex = this.currentModalityIndex;
     const nextIndex =
       direction === 'next' ? currentIndex + 1 : currentIndex - 1;
 
@@ -38,8 +36,9 @@ export class ExamComponent {
   }
 
   // click event on right and left arrow to navigate
-  @HostListener('document:keydown', ['$event'])
+  @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
+    console.log(event.key);
     if (event.key === 'ArrowRight') {
       this.navigateModality('next');
     } else if (event.key === 'ArrowLeft') {

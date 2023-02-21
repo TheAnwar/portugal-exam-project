@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ra',
   templateUrl: './ra.component.html',
-  styleUrls: ['./ra.component.scss']
+  styleUrls: ['./ra.component.scss'],
 })
 export class RaComponent {
+  @Input() type = 'short';
 
+  isSubmitted = false;
 }
