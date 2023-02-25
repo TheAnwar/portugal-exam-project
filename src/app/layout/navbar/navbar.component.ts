@@ -9,7 +9,7 @@ export class NavbarComponent {
   routes = [
     {
       name: 'Home',
-      path: '',
+      path: 'home',
     },
     {
       name: 'Dashboard',

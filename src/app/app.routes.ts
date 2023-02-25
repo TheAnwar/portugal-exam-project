@@ -5,16 +5,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
   },
   {
     path: 'login',
@@ -25,17 +22,27 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'payment',
-    component: PaymentComponent,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'exam',
-    loadChildren: () =>
-      import('./pages/exam/exam.module').then((m) => m.ExamModule),
+    path: '',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'home',
+        redirectTo: 'dashboard',
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
+      {
+        path: 'exam',
+        loadChildren: () =>
+          import('./pages/exam/exam.module').then((m) => m.ExamModule),
+      },
+    ],
   },
 ];
 
