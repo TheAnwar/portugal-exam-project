@@ -11,6 +11,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { IsLoggedDirective } from './is-logged.directive';
+import { ForgetPassComponent } from './auth/forget-pass/forget-pass.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { PaymentComponent } from './pages/payment/payment.component';
     LoginComponent,
     PaymentComponent,
     DashboardComponent,
+    IsLoggedDirective,
+    ForgetPassComponent,
   ],
   imports: [SharedModule, BrowserModule, AppRoutingModule],
   providers: [],

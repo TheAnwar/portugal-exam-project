@@ -1,0 +1,54 @@
+<section>
+  <div class="py-20 container">
+    <img src="/assets/images/aww.png" class="h-48 mx-auto -mb-2" />
+
+    <div class="max-w-2xl bg-[#F2F2F2] shadow-2xl py-6 mx-auto">
+      <img src="/assets/images/tlogo.png" class="h-20 mx-auto mb-6" />
+      <form class="max-w-[80%] mx-auto mb-20" *ngIf="step === 1">
+        <div class="flex flex-col mb-6">
+          <label class="font-bold text-lg" for="email">E-mail</label>
+          <input
+            class="border border-[#4472c4] p-2 w-full"
+            type="email"
+            placeholder="Enter Your E-mail"
+          />
+        </div>
+
+        <div class="flex justify-center">
+          <button class="button text-xl" type="button" (click)="forgetPass()">
+            Recuperar palavra-passe
+          </button>
+        </div>
+      </form>
+
+      <form class="max-w-[80%] mx-auto mb-20" *ngIf="step === 2">
+        <div class="flex flex-col mb-6">
+          <label class="font-bold text-lg" for="password"
+            >Nova palavra-passe</label
+          >
+          <input
+            class="border border-[#4472c4] p-2 w-full"
+            type="password"
+            placeholder="Nova palavra-passe"
+          />
+        </div>
+        <div class="flex flex-col mb-6">
+          <label class="font-bold text-lg" for="password">
+            Repete a tua nova palavra-passe
+          </label>
+          <input
+            class="border border-[#4472c4] p-2 w-full"
+            type="password"
+            placeholder="Repete a tua nova palavra-passe"
+          />
+        </div>
+
+        <div class="flex justify-center">
+          <button class="button text-xl" type="button" routerLink="/dashboard">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

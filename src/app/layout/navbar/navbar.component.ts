@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,16 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   routes = [
     {
-      name: 'Home',
-      path: 'home',
-    },
-    {
       name: 'Dashboard',
       path: 'dashboard',
     },
   ];
+
+  constructor(private user: UserService) {}
+
+  logout() {
+    this.user.isLoggedIn.next(false);
+    localStorage.removeItem('login_token');
+    window.location.href = '/';
+  }
 }

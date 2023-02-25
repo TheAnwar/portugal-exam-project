@@ -1,11 +1,12 @@
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PaymentComponent } from './pages/payment/payment.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './auth.guard';
+import { ForgetPassComponent } from './auth/forget-pass/forget-pass.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoggedGuard } from './logged.guard';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [LoggedGuard],
     component: LoginComponent,
+  },
+  {
+    path: 'forget-password',
+    component: ForgetPassComponent,
   },
   {
     path: 'register',
