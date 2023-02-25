@@ -10,12 +10,12 @@ export class HomeComponent {
     {
       name: 'Português',
       icon: '/assets/images/subjects/1.png',
-      selected: true,
+      selected: false,
     },
     {
       name: 'Matemática A',
       icon: '/assets/images/subjects/2.png',
-      selected: true,
+      selected: false,
     },
     {
       name: 'História',

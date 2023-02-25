@@ -1,0 +1,60 @@
+<section *ngIf="step === 1">
+  <div class="container flex justify-between py-10">
+    <div class="flex flex-col max-w-lg w-full">
+      <h1 class="text-4xl font-bold mb-8">My personal data</h1>
+      <form class="w-full flex flex-col mb-6">
+        <label class="font-bold text-lg pt-3" for="email">Name</label>
+        <input
+          class="border border-[#4472c4] p-2 w-full"
+          type="text"
+          placeholder="Enter Your Name"
+        />
+
+        <label class="font-bold text-lg pt-3" for="email">E-mail</label>
+        <input
+          class="border border-[#4472c4] p-2 w-full"
+          type="email"
+          placeholder="Enter Your E-mail"
+        />
+
+        <label class="font-bold text-lg pt-3" for="password">Password</label>
+        <input
+          class="border border-[#4472c4] p-2 w-full"
+          type="password"
+          placeholder="Password"
+        />
+
+        <label class="font-bold text-lg pt-3" for="password">
+          Repeat Password
+        </label>
+        <input
+          class="border border-[#4472c4] p-2 w-full"
+          type="password"
+          placeholder="Repeat Password"
+        />
+      </form>
+      <div class="flex mb-10">
+        <button
+          class="bg-[#70ad47] py-2 px-8 text-white text-xl font-semibold rounded-lg"
+          routerLink="/payment"
+          [queryParams]="{ step: 1 }"
+        >
+          Continue
+        </button>
+      </div>
+
+      <a routerLink="/login">
+        <p class="underline text-blue-500">Already have an account? Log in</p>
+      </a>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="fixed right-0 top-[4.5rem]">
+    <img
+      class="h-[100vh] object-cover w-[50vw]"
+      src="/assets/images/login-img.png"
+      alt="hi"
+    />
+  </div>
+</section>
