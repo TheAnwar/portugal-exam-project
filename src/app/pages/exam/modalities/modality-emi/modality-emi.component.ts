@@ -3,8 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-modality-emi',
   templateUrl: './modality-emi.component.html',
-  styleUrls: ['./modality-emi.component.scss']
+  styleUrls: ['./modality-emi.component.scss'],
 })
 export class ModalityEmiComponent {
-
+  options = [
+    { name: 'Option 1', value: 'option1' },
+    { name: 'Option 2', value: 'option2' },
+    { name: 'Option 3', value: 'option3' },
+    { name: 'Option 4', value: 'option4' },
+  ];
 }

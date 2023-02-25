@@ -12,7 +12,8 @@
   }
 
   /* Style the checkbox */
-  input[type="checkbox"] {
+  input[type="checkbox"],
+  input[type="radio"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -26,6 +27,9 @@
 
   // label has input checked then label img is white
   input[type="checkbox"]:checked + .checkbox {
-    background-color: aquamarine;
+    background-color: #0ba450;
+  }
+  input[type="radio"]:checked + .checkbox {
+    background-color: #0ba450;
   }
 }

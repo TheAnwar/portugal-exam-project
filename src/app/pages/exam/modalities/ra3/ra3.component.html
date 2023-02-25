@@ -1,20 +1,27 @@
-<div class="flex justify-between gap-2">
+<div class="flex justify-between gap-2 mb-6">
   <div class="border">
     <app-drawable></app-drawable>
   </div>
   <div class="border">
-    <img class="pt-14 w-[350px] h-[250px]" src="/assets/images/cross.png" />
+    <img
+      class="pt-14 w-[350px] h-[250px]"
+      src="/assets/images/cross.png"
+      *ngIf="isSubmitted"
+    />
   </div>
 </div>
-<div class="pt-4">
+<div class="mb-8">
   <textarea
     placeholder="Type your answer here..."
     cols="60"
     rows="8"
     class="w-full h-36 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
   ></textarea>
+</div>
 
-  <div class="flex items-end justify-end pt-6">
-    <button class="button">Next question button</button>
-  </div>
+<div class="flex items-end justify-end">
+  <button class="button" (click)="submit()" *ngIf="!isSubmitted">
+    Submit Answer
+  </button>
+  <button class="button" *ngIf="isSubmitted">Next question</button>
 </div>

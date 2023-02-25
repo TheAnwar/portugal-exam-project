@@ -21,7 +21,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'vf';
+  currentModality = 'dd';
 
   navigateModality(direction: 'next' | 'prev') {
     const currentIndex = this.currentModalityIndex;

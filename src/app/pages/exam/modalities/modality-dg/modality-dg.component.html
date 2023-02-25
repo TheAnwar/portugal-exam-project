@@ -1,11 +1,15 @@
-<div class="flex gap-1">
+<div class="flex gap-1 mb-8">
   <div class="border">
     <app-drawable></app-drawable>
   </div>
   <div class="border">
-    <img src="/assets/images/correction.png" alt="" />
+    <img src="/assets/images/correction.png" *ngIf="isSubmitted" />
   </div>
 </div>
-<div class="flex items-end justify-end pt-6">
-  <button class="button">Submit Answer</button>
+
+<div class="flex items-end justify-end">
+  <button class="button" (click)="submit()" *ngIf="!isSubmitted">
+    Submit Answer
+  </button>
+  <button class="button" *ngIf="isSubmitted">Next question</button>
 </div>
