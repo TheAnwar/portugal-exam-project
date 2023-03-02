@@ -13,6 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { IsLoggedDirective } from './is-logged.directive';
 import { ForgetPassComponent } from './auth/forget-pass/forget-pass.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,12 @@ import { ForgetPassComponent } from './auth/forget-pass/forget-pass.component';
     IsLoggedDirective,
     ForgetPassComponent,
   ],
-  imports: [SharedModule, BrowserModule, AppRoutingModule],
+  imports: [
+    SharedModule,
+    BrowserModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
