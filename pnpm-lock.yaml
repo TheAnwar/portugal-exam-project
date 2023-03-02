@@ -16,6 +16,7 @@ specifiers:
   '@angular/router': ^15.1.0
   '@types/jasmine': ~4.3.0
   autoprefixer: ^10.4.13
+  firebase: ^9.17.1
   jasmine-core: ~4.5.0
   karma: ~6.4.0
   karma-chrome-launcher: ~3.1.0
@@ -40,6 +41,7 @@ dependencies:
   '@angular/platform-browser': 15.1.4_vztyff4teqf7syhiw43dlsmbye
   '@angular/platform-browser-dynamic': 15.1.4_ohokuiwz5epmc3j7lxm4wjl25a
   '@angular/router': 15.1.4_g7mjdvsmeszabti4mywkhjexwi
+  firebase: 9.17.1
   rxjs: 7.8.0
   tslib: 2.5.0
   zone.js: 0.12.0

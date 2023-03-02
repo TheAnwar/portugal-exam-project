@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -8,10 +10,22 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router, private user: UserService) {}
+  form!: FormGroup;
+
+  constructor(
+    private router: Router,
+    private user: UserService,
+    private auth: AuthService,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      username: [''],
+      password: [''],
+    });
+  }
+
   login() {
-    this.user.isLoggedIn.next(true);
-    localStorage.setItem('login_token', 'true');
-    this.router.navigate(['/home']);
+    const { username, password } = this.form.value;
+    this.auth.SignIn(username, password);
   }
 }
