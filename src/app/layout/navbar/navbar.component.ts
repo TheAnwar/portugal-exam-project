@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/user.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,10 +14,10 @@ export class NavbarComponent {
     },
   ];
 
-  constructor(private user: UserService) {}
+  constructor(private auth: AuthService) {}
 
   logout() {
-    this.user.isLoggedIn.next(false);
+    this.auth.SignOut();
     localStorage.removeItem('login_token');
     window.location.href = '/';
   }

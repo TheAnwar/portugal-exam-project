@@ -7,11 +7,15 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any; // Save logged in user data
+
+  loggedIn$ = new BehaviorSubject(false);
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -21,12 +25,14 @@ export class AuthService {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
-      console.log(user);
       if (user) {
         this.userData = user;
+        console.log(this.userData);
+        this.loggedIn$.next(true);
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
+        this.loggedIn$.next(false);
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
@@ -40,6 +46,7 @@ export class AuthService {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
+            this.loggedIn$.next(true);
             this.router.navigate(['dashboard']);
           }
         });
@@ -67,6 +74,7 @@ export class AuthService {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
+        this.loggedIn$.next(true);
         this.router.navigate(['verify-email-address']);
       });
   }
@@ -84,12 +92,13 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null ? true : false;
   }
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
+      this.loggedIn$.next(true);
+      this.router.navigate(['/dashboard']);
     });
   }
   // Auth logic to run auth providers
@@ -97,7 +106,8 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['dashboard']);
+        this.loggedIn$.next(true);
+        this.router.navigate(['/dashboard']);
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -126,6 +136,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      this.loggedIn$.next(true);
       this.router.navigate(['sign-in']);
     });
   }

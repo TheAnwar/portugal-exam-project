@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';
 import { ForgetPassComponent } from './auth/forget-pass/forget-pass.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoggedGuard } from './logged.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { FireAuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate: [FireAuthGuard],
     children: [
       {
         path: 'home',
