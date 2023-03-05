@@ -21,10 +21,12 @@ const routes: Routes = [
   },
   {
     path: 'forget-password',
+    canActivate: [LoggedGuard],
     component: ForgetPassComponent,
   },
   {
     path: 'register',
+    canActivate: [LoggedGuard],
     component: RegisterComponent,
   },
   {

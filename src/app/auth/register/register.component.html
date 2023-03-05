@@ -8,6 +8,7 @@
           <input
             class="border border-[#4472c4] p-2 w-full"
             type="text"
+            formControlName="name"
             placeholder="Enter Your Name"
           />
         </div>
@@ -46,11 +47,8 @@
         </div>
       </form>
       <div class="flex mb-10">
-        <button
-          class="bg-[#70ad47] py-2 px-8 text-white text-xl font-semibold rounded-lg"
-          (click)="login()"
-        >
-          Continue
+        <button class="button" (click)="login()" [disabled]="isLoading">
+          {{ isLoading ? "Loading..." : "Continue" }}
         </button>
       </div>
 

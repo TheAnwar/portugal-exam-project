@@ -56,14 +56,20 @@ export class AuthService {
       });
   }
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp(email: string, password: string, name: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
+
         this.SendVerificationMail();
-        this.SetUserData(result.user);
+        this.afAuth.currentUser.then((user) => {
+          user?.updateProfile({
+            displayName: name,
+          });
+          this.SetUserData(result.user);
+        });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -75,7 +81,7 @@ export class AuthService {
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
         this.loggedIn$.next(true);
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate(['dashboard']);
       });
   }
   // Reset Forggot password
@@ -136,8 +142,8 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.loggedIn$.next(true);
-      this.router.navigate(['sign-in']);
+      this.loggedIn$.next(false);
+      this.router.navigate(['login']);
     });
   }
 }

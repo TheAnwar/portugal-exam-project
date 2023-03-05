@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class RegisterComponent {
   form!: FormGroup;
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -17,15 +19,31 @@ export class RegisterComponent {
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
+      name: [''],
       username: [''],
       password: [''],
     });
+
+    if (!environment.production) {
+      this.form.setValue({
+        name: 'test',
+        username: 'aib.tmkm@gmail.com',
+        password: '123456',
+      });
+    }
   }
 
   login() {
-    const { username, password } = this.form.value;
-    this.auth.SignUp(username, password);
-
-    // this.router.navigate(['/payment'], { queryParams: { step: 1 } });
+    this.isLoading = true;
+    const { username, password, name } = this.form.value;
+    this.auth
+      .SignUp(username, password, name)
+      .then(() => {
+        this.router.navigate(['dashboard']);
+        this.isLoading = false;
+      })
+      .catch(() => {
+        this.isLoading = false;
+      });
   }
 }

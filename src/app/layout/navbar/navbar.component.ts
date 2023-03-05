@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -14,11 +15,10 @@ export class NavbarComponent {
     },
   ];
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   logout() {
     this.auth.SignOut();
-    localStorage.removeItem('login_token');
-    window.location.href = '/';
+    this.router.navigate(['login']);
   }
 }

@@ -5,7 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AuthService } from './shared/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
@@ -15,9 +15,16 @@ export class LoggedGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isLoggedIn === true) {
-      this.router.navigate(['/dashboard']);
-    }
-    return true;
+    return this.authService.loggedIn$.pipe(
+      map((loggedIn) => {
+        console.log(loggedIn);
+        if (!loggedIn) {
+          return true;
+        }
+
+        this.router.navigate(['dashboard']);
+        return false;
+      })
+    );
   }
 }
