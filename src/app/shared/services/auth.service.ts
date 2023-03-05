@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  user$ = new BehaviorSubject<User | null>(null);
+
   userData: any; // Save logged in user data
 
   loggedIn$ = new BehaviorSubject(false);
@@ -27,7 +29,7 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
-        console.log(this.userData);
+        this.user$.next(user as User);
         this.loggedIn$.next(true);
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);

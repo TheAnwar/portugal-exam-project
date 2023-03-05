@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { User } from 'src/app/shared/services/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -52,10 +53,15 @@ export class DashboardComponent {
       selected: false,
     },
   ];
+  user: User | null = null;
 
   constructor(private route: ActivatedRoute, public auth: AuthService) {}
 
   ngOnInit() {
+    this.auth.user$.subscribe((user) => {
+      this.user = user;
+    });
+
     this.route.queryParams.subscribe((params) => {
       if (params['isExisting'] === 'true') {
         this.isExisting = true;
