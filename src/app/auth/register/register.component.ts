@@ -24,6 +24,8 @@ export class RegisterComponent {
       password: [''],
     });
 
+    console.log(environment);
+
     if (!environment.production) {
       this.form.setValue({
         name: 'test',
