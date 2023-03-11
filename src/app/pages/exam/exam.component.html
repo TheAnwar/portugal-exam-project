@@ -21,13 +21,13 @@
     <div>
       <div [ngSwitch]="currentModality" class="mb-10">
         <div *ngSwitchCase="'ra'">
-          <app-ra type="long"></app-ra>
+          <app-ra type="long" [isSubmitted]="submitted"></app-ra>
         </div>
         <div *ngSwitchCase="'ra2'">
           <app-ra type="short"></app-ra>
         </div>
         <div *ngSwitchCase="modalities[2].code">
-          <app-ra3></app-ra3>
+          <app-ra3 [isSubmitted]="submitted"></app-ra3>
         </div>
         <div *ngSwitchCase="modalities[3].code">
           <app-em></app-em>
@@ -48,10 +48,10 @@
           <app-modality-vf></app-modality-vf>
         </div>
         <div *ngSwitchCase="modalities[9].code">
-          <app-modality-dg></app-modality-dg>
+          <app-modality-dg [isSubmitted]="submitted"></app-modality-dg>
         </div>
         <div *ngSwitchCase="modalities[10].code">
-          <app-modality-dd></app-modality-dd>
+          <app-modality-dd [isSubmitted]="submitted"></app-modality-dd>
         </div>
         <div *ngSwitchCase="modalities[11].code">
           <app-modality-eq></app-modality-eq>

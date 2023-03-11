@@ -22,12 +22,13 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'ra3';
+  currentModality = 'ra';
   submitted: boolean = false;
 
   constructor(private router: Router) {}
 
   navigateModality(direction: 'next' | 'prev') {
+    this.submitted = false;
     const currentIndex = this.currentModalityIndex;
     const nextIndex =
       direction === 'next' ? currentIndex + 1 : currentIndex - 1;
