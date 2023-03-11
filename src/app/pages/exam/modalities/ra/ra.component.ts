@@ -9,4 +9,10 @@ export class RaComponent {
   @Input() type = 'short';
 
   @Input() isSubmitted = false;
+
+  show = false;
+
+  showToggle() {
+    this.show = !this.show;
+  }
 }
