@@ -23,6 +23,7 @@ export class IsLoggedDirective {
   ngOnInit(): void {
     this.auth.loggedIn$.subscribe((isLoggedIn) => {
       if ((isLoggedIn && this.isLogged) || (!isLoggedIn && !this.isLogged)) {
+        this.viewContainer.clear();
         this.el = this.viewContainer.createEmbeddedView(this.templateRef);
       } else {
         this.viewContainer.clear();

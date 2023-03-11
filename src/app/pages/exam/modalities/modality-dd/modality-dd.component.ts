@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modality-dd',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./modality-dd.component.scss'],
 })
 export class ModalityDdComponent {
-  isSubmitted = false;
+  @Input() isSubmitted = false;
 
   leftItems = [
     'I - The Phantom Menace _______',
@@ -31,9 +31,5 @@ export class ModalityDdComponent {
 
   reset() {
     this.sorted = [...this.original];
-  }
-
-  submit() {
-    this.isSubmitted = true;
   }
 }

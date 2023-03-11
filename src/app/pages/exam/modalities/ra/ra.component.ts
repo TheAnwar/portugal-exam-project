@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class RaComponent {
   @Input() type = 'short';
 
-  isSubmitted = false;
+  @Input() isSubmitted = false;
 }

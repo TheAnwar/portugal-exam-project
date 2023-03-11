@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ra3',
@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./ra3.component.scss'],
 })
 export class Ra3Component {
-  isSubmitted = false;
-
-  submit() {
-    this.isSubmitted = true;
-  }
+  @Input() isSubmitted = false;
 }

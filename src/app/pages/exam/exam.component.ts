@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam',
@@ -22,6 +23,9 @@ export class ExamComponent {
   ];
 
   currentModality = 'ra3';
+  submitted: boolean = false;
+
+  constructor(private router: Router) {}
 
   navigateModality(direction: 'next' | 'prev') {
     const currentIndex = this.currentModalityIndex;
@@ -50,7 +54,12 @@ export class ExamComponent {
     return this.modalities.findIndex((m) => m.code === this.currentModality);
   }
 
+  submitQuestion() {
+    console.log('submitted');
+    this.submitted = true;
+  }
+
   endExam() {
-    console.log('end exam');
+    this.router.navigateByUrl('/exam/choose');
   }
 }

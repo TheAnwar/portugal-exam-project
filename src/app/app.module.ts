@@ -19,6 +19,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AuthService } from './shared/services/auth.service';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthService } from './shared/services/auth.service';
     DashboardComponent,
     IsLoggedDirective,
     ForgetPassComponent,
+    EditProfileComponent,
   ],
   imports: [
     SharedModule,

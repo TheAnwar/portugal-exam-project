@@ -18,56 +18,72 @@
         porro.
       </p>
     </div>
+    <div>
+      <div [ngSwitch]="currentModality" class="mb-10">
+        <div *ngSwitchCase="'ra'">
+          <app-ra type="long"></app-ra>
+        </div>
+        <div *ngSwitchCase="'ra2'">
+          <app-ra type="short"></app-ra>
+        </div>
+        <div *ngSwitchCase="modalities[2].code">
+          <app-ra3></app-ra3>
+        </div>
+        <div *ngSwitchCase="modalities[3].code">
+          <app-em></app-em>
+        </div>
+        <div *ngSwitchCase="modalities[4].code">
+          <app-modality-emi></app-modality-emi>
+        </div>
+        <div *ngSwitchCase="modalities[5].code">
+          <app-modality-emj></app-modality-emj>
+        </div>
+        <div *ngSwitchCase="modalities[6].code">
+          <app-modality-emm></app-modality-emm>
+        </div>
+        <div *ngSwitchCase="modalities[7].code">
+          <app-modality-or></app-modality-or>
+        </div>
+        <div *ngSwitchCase="modalities[8].code">
+          <app-modality-vf></app-modality-vf>
+        </div>
+        <div *ngSwitchCase="modalities[9].code">
+          <app-modality-dg></app-modality-dg>
+        </div>
+        <div *ngSwitchCase="modalities[10].code">
+          <app-modality-dd></app-modality-dd>
+        </div>
+        <div *ngSwitchCase="modalities[11].code">
+          <app-modality-eq></app-modality-eq>
+        </div>
 
-    <div [ngSwitch]="currentModality">
-      <div *ngSwitchCase="'ra'">
-        <app-ra type="long"></app-ra>
-      </div>
-      <div *ngSwitchCase="'ra2'">
-        <app-ra type="short"></app-ra>
-      </div>
-      <div *ngSwitchCase="modalities[2].code">
-        <app-ra3></app-ra3>
-      </div>
-      <div *ngSwitchCase="modalities[3].code">
-        <app-em></app-em>
-      </div>
-      <div *ngSwitchCase="modalities[4].code">
-        <app-modality-emi></app-modality-emi>
-      </div>
-      <div *ngSwitchCase="modalities[5].code">
-        <app-modality-emj></app-modality-emj>
-      </div>
-      <div *ngSwitchCase="modalities[6].code">
-        <app-modality-emm></app-modality-emm>
-      </div>
-      <div *ngSwitchCase="modalities[7].code">
-        <app-modality-or></app-modality-or>
-      </div>
-      <div *ngSwitchCase="modalities[8].code">
-        <app-modality-vf></app-modality-vf>
-      </div>
-      <div *ngSwitchCase="modalities[9].code">
-        <app-modality-dg></app-modality-dg>
-      </div>
-      <div *ngSwitchCase="modalities[10].code">
-        <app-modality-dd></app-modality-dd>
-      </div>
-      <div *ngSwitchCase="modalities[11].code">
-        <app-modality-eq></app-modality-eq>
+        <div *ngSwitchDefault>modality didn't match</div>
       </div>
 
-      <div *ngSwitchDefault>modality didn't match</div>
+      <div class="flex items-end justify-end">
+        <button class="button" (click)="submitQuestion()" *ngIf="!submitted">
+          Submit Answer
+        </button>
+        <button
+          class="button"
+          *ngIf="submitted"
+          (click)="navigateModality('next')"
+        >
+          Next question
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <nav
-  class="border-gray-200 px-2 sm:px-4 py-2.5 bg-primary fixed bottom-0 inset-x-0 gap-10 text-white"
+  class="border-gray-200 px-2 sm:px-4 py-2 bg-primary fixed bottom-0 inset-x-0 gap-10 text-white"
 >
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <div>
-      <button (click)="endExam()" class="end-btn">Sair deste exame</button>
+      <button (click)="endExam()" class="end-btn !py-0">
+        Sair deste exame
+      </button>
     </div>
 
     <div class="flex gap-6 items-center">

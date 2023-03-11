@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoggedGuard } from './logged.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { FireAuthGuard } from './shared/guard/auth.guard';
 
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+      {
+        path: 'edit-profile',
+        component: EditProfileComponent,
       },
       {
         path: 'exam',

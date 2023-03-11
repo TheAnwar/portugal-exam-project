@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modality-dg',
@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./modality-dg.component.scss'],
 })
 export class ModalityDgComponent {
-  isSubmitted = false;
-
-  submit() {
-    this.isSubmitted = true;
-  }
+  @Input() isSubmitted = false;
 }
