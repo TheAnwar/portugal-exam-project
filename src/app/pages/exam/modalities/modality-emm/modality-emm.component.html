@@ -1,22 +1,31 @@
 <div class="mb-4">
   <div class="flex flex-col gap-2">
-    <div class="border py-6 px-2 flex" *ngFor="let q of [1, 2, 3]">
+    <div class="border py-6 px-2 flex" *ngFor="let q of questions">
       <div class="w-3/5">
-        (A) No seculo passado, a Fundacao Nobel ____________ dois premios a
-        Marie Curie
+        {{ q.title }}
       </div>
       <div class="w-2/5">
-        <form>
-          <div class="radiobtn" *ngFor="let item of [1, 2, 3]">
-            <input
-              type="radio"
-              id="option{{ q }}{{ item }}"
-              name="answer{{ q }}"
-              value="Nasim{{ item }}"
-            />
-            <label for="option{{ q }}{{ item }}"> option {{ item }} </label>
-          </div>
-        </form>
+        <div
+          class="radiobtn"
+          *ngFor="let item of q.options; index as oi"
+          [ngClass]="{
+            'emi-correct': isSubmitted && oi === correctAns[q.id],
+            'emi-wrong':
+              isSubmitted &&
+              answers[q.id] !== correctAns[q.id] &&
+              oi === answers[q.id]
+          }"
+        >
+          <input
+            type="radio"
+            [disabled]="isSubmitted"
+            id="option{{ q.id }}{{ item }}"
+            name="answer{{ q.id }}"
+            value="Nasim{{ item }}"
+            (change)="setAnswer(q.id, oi)"
+          />
+          <label for="option{{ q.id }}{{ item }}"> option {{ item }} </label>
+        </div>
       </div>
     </div>
   </div>

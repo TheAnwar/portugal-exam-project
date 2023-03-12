@@ -1,23 +1,26 @@
-<form>
-  <div class="radiobtn">
-    <input type="radio" id="answerA" name="answer" value="answerA" checked />
-    <label for="answerA">(A) Answer A</label>
+<div class="mb-6" *ngFor="let q of questions">
+  <div
+    class="radiobtn"
+    *ngFor="let item of q.options; index as oi"
+    [ngClass]="{
+      'emi-correct': isSubmitted && oi === correctAns[q.id],
+      'emi-wrong':
+        isSubmitted &&
+        answers[q.id] !== correctAns[q.id] &&
+        oi === answers[q.id]
+    }"
+  >
+    <input
+      type="radio"
+      [disabled]="isSubmitted"
+      id="option{{ q.id }}{{ item }}"
+      name="answer{{ q.id }}"
+      value="Nasim{{ item }}"
+      (change)="setAnswer(q.id, oi)"
+    />
+    <label for="option{{ q.id }}{{ item }}"> option {{ item }} </label>
   </div>
-
-  <div class="radiobtn">
-    <input type="radio" id="answerB" name="answer" value="answerB" />
-    <label for="answerB">(B) Answer B</label>
-  </div>
-
-  <div class="radiobtn">
-    <input type="radio" id="answerC" name="answer" value="answerC" />
-    <label for="answerC">(C) Answer C</label>
-  </div>
-  <div class="radiobtn">
-    <input type="radio" id="answerD" name="answer" value="answerD" />
-    <label for="answerD">(D) Answer D</label>
-  </div>
-</form>
+</div>
 
 <div *ngIf="!isSubmitted">
   <textarea

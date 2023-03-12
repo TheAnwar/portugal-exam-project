@@ -65,32 +65,45 @@ $darkcolor: #444;
   }
 }
 
-@keyframes blink {
-  0% {
-    background-color: lighten($accentcolor, 15%);
+$correct: #0ba450;
+$incorrect: red;
+
+.emi-correct.radiobtn {
+  label {
+    background: lighten($correct, 30%);
+    border: 2px solid lighten($correct, 20%);
+    &:after,
+    &:before {
+      background: lighten($correct, 15%);
+    }
   }
-  10% {
-    background-color: lighten($accentcolor, 15%);
+  input[type="radio"] {
+    &:checked + label {
+      background: lighten($correct, 15%);
+      border-color: $correct;
+      &:after {
+        background: $correct;
+      }
+    }
   }
-  11% {
-    background-color: lighten($accentcolor, 20%);
+}
+
+.emi-wrong.radiobtn {
+  label {
+    background: lighten($incorrect, 30%);
+    border: 2px solid lighten($incorrect, 20%);
+    &:after,
+    &:before {
+      background: lighten($incorrect, 15%);
+    }
   }
-  29% {
-    background-color: lighten($accentcolor, 20%);
-  }
-  30% {
-    background-color: lighten($accentcolor, 15%);
-  }
-  50% {
-    background-color: lighten($accentcolor, 20%);
-  }
-  45% {
-    background-color: lighten($accentcolor, 15%);
-  }
-  50% {
-    background-color: lighten($accentcolor, 20%);
-  }
-  100% {
-    background-color: lighten($accentcolor, 15%);
+  input[type="radio"] {
+    &:checked + label {
+      background: lighten($incorrect, 15%);
+      border-color: $incorrect;
+      &:after {
+        background: $incorrect;
+      }
+    }
   }
 }
