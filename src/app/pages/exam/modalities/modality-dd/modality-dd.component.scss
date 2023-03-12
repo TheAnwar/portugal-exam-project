@@ -47,13 +47,3 @@
 .list-item.cdk-drop-list-dragging .list-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-.emi-correct {
-  background: #0ba450 !important;
-  color: white;
-}
-
-.emi-wrong {
-  background: red !important;
-  color: white;
-}
