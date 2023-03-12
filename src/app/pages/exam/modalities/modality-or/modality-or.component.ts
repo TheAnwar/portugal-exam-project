@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modality-or',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./modality-or.component.scss'],
 })
 export class ModalityOrComponent {
+  @Input() isSubmitted = false;
+
   original = [
     'I - The Phantom Menace',
     'II - Attack of the Clones',

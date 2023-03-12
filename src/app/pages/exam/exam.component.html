@@ -30,7 +30,7 @@
           <app-ra3 [isSubmitted]="submitted"></app-ra3>
         </div>
         <div *ngSwitchCase="modalities[3].code">
-          <app-em></app-em>
+          <app-em [isSubmitted]="submitted"></app-em>
         </div>
         <div *ngSwitchCase="modalities[4].code">
           <app-modality-emi [isSubmitted]="submitted"></app-modality-emi>
@@ -42,7 +42,7 @@
           <app-modality-emm [isSubmitted]="submitted"></app-modality-emm>
         </div>
         <div *ngSwitchCase="modalities[7].code">
-          <app-modality-or></app-modality-or>
+          <app-modality-or [isSubmitted]="submitted"></app-modality-or>
         </div>
         <div *ngSwitchCase="modalities[8].code">
           <app-modality-vf [isSubmitted]="submitted"></app-modality-vf>
@@ -54,7 +54,7 @@
           <app-modality-dd [isSubmitted]="submitted"></app-modality-dd>
         </div>
         <div *ngSwitchCase="modalities[11].code">
-          <app-modality-eq></app-modality-eq>
+          <app-modality-eq [isSubmitted]="submitted"></app-modality-eq>
         </div>
 
         <div *ngSwitchDefault>modality didn't match</div>

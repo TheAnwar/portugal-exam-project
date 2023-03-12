@@ -17,15 +17,29 @@ export class ModalityDdComponent {
   ];
 
   original = [
-    'V - The Empire Strikes Back lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam tincidunt, lorem ipsum',
-    'VI - Return of the Jedi',
-    'VII - The Force Awakens',
-    'VIII - The Last Jedi',
+    {
+      id: 1,
+      text: 'V - The Empire Strikes Back lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam tincidunt, lorem ipsum',
+    },
+    {
+      id: 2,
+      text: 'VI - Return of the Jedi',
+    },
+    {
+      id: 3,
+      text: 'VII - The Force Awakens',
+    },
+    {
+      id: 4,
+      text: 'VIII - The Last Jedi',
+    },
   ];
 
-  sorted: string[] = [...this.original];
+  answers = [3, 2, 1, 4];
 
-  drop(event: CdkDragDrop<string[]>) {
+  sorted: any[] = [...this.original];
+
+  drop(event: CdkDragDrop<any[]>) {
     moveItemInArray(this.sorted, event.previousIndex, event.currentIndex);
   }
 
