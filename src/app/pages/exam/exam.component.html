@@ -45,7 +45,7 @@
           <app-modality-or></app-modality-or>
         </div>
         <div *ngSwitchCase="modalities[8].code">
-          <app-modality-vf></app-modality-vf>
+          <app-modality-vf [isSubmitted]="submitted"></app-modality-vf>
         </div>
         <div *ngSwitchCase="modalities[9].code">
           <app-modality-dg [isSubmitted]="submitted"></app-modality-dg>

@@ -1,7 +1,11 @@
 <div class="w-full pt-10 flex flex-col gap-2">
   <div
     class="flex border-2 py-2 px-1 w-full justify-between items-center rounded-sm"
-    *ngFor="let item of statements"
+    *ngFor="let item of statements; index as i"
+    [ngClass]="{
+      'emi-correct': isSubmitted && answers[i] === item.ans,
+      'emi-wrong': isSubmitted && answers[i] !== item.ans
+    }"
   >
     <p>
       {{ item.text }}

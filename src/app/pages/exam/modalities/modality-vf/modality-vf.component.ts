@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modality-vf',
@@ -6,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./modality-vf.component.scss'],
 })
 export class ModalityVfComponent {
-  // statements can be true or false
-  // true = correct
-  // false = incorrect
+  @Input() isSubmitted = false;
 
   statements = [
     {
@@ -32,4 +30,6 @@ export class ModalityVfComponent {
       ans: false,
     },
   ];
+
+  answers = [true, false, true, false, false];
 }
