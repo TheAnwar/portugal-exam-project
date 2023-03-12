@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modality-emi',
@@ -12,4 +12,14 @@ export class ModalityEmiComponent {
     { name: 'Option 3', value: 'option3' },
     { name: 'Option 4', value: 'option4' },
   ];
+
+  @Input() isSubmitted = false;
+
+  yourAnswer!: number;
+
+  correctAnswer = 2;
+
+  setUserInput(i: number) {
+    this.yourAnswer = i;
+  }
 }

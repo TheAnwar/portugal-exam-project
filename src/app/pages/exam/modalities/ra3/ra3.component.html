@@ -12,9 +12,34 @@
 </div>
 <div class="mb-8">
   <textarea
+    *ngIf="!isSubmitted"
     placeholder="Type your answer here..."
     cols="60"
     rows="8"
     class="w-full h-36 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
   ></textarea>
+</div>
+
+<div *ngIf="isSubmitted">
+  <div class="pt-5">
+    <h5 class="text-[#629fd7]">Your answer</h5>
+    <p>
+      <span>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo,
+        error tempore. Obcaecati, recusandae. Magni, praesentium laudantium
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+    </p>
+  </div>
 </div>

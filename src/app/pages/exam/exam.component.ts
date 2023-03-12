@@ -22,7 +22,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'ra';
+  currentModality = 'emj';
   submitted: boolean = false;
 
   constructor(private router: Router) {}

@@ -1,7 +1,20 @@
-<div class="grid grid-cols-2 gap-4 pt-5">
+<div class="grid grid-cols-2 gap-4 pt-5 mb-4">
   <label for="checkbox-{{ i }}" *ngFor="let item of options; index as i">
-    <input type="radio" id="checkbox-{{ i }}" name="checkbox" />
-    <div class="p-4 flex gap-3 checkbox">
+    <input
+      [disabled]="isSubmitted"
+      type="radio"
+      id="checkbox-{{ i }}"
+      name="checkbox"
+      (change)="setUserInput(i)"
+    />
+    <div
+      class="p-4 flex gap-3 checkbox"
+      [ngClass]="{
+        'emi-correct': isSubmitted && i === correctAnswer,
+        'emi-wrong':
+          isSubmitted && yourAnswer !== correctAnswer && i === yourAnswer
+      }"
+    >
       <p>A</p>
       <img
         class="object-contain w-full"
@@ -10,4 +23,13 @@
       />
     </div>
   </label>
+</div>
+
+<div *ngIf="isSubmitted">
+  <h5 class="text-[#269a03]" *ngIf="correctAnswer === yourAnswer">
+    Your answer is correct
+  </h5>
+  <h5 class="text-[#eb1805]" *ngIf="correctAnswer !== yourAnswer">
+    Your answer is wrong
+  </h5>
 </div>

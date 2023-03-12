@@ -19,11 +19,47 @@
   </div>
 </form>
 
-<div class="">
+<div *ngIf="!isSubmitted">
   <textarea
     placeholder="Type your justification here..."
     cols="60"
     rows="8"
     class="w-full h-36 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
   ></textarea>
+</div>
+
+<div *ngIf="isSubmitted">
+  <div class="pt-5">
+    <h5 class="text-[#629fd7]">Correction criteria</h5>
+    <p [ngClass]="{ 'h-24 overflow-hidden hidden': !this.show }">
+      <span>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo,
+        error tempore. Obcaecati, recusandae. Magni, praesentium laudantium
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+    </p>
+  </div>
+  <div class="flex items-start justify-start pt-8">
+    <button
+      class="bg-[#a5a5a5] py-2 px-4 rounded text-white"
+      (click)="showToggle()"
+    >
+      {{
+        this.show
+          ? "(-) Close additional correction criteria"
+          : "(+) See additional correction criteria"
+      }}
+    </button>
+  </div>
 </div>
