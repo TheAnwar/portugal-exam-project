@@ -83,7 +83,7 @@ export class AuthService {
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
         this.loggedIn$.next(true);
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['payment']);
       });
   }
   // Reset Forggot password

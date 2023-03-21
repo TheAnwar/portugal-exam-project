@@ -41,7 +41,6 @@ export class RegisterComponent {
     this.auth
       .SignUp(username, password, name)
       .then(() => {
-        this.router.navigate(['dashboard']);
         this.isLoading = false;
       })
       .catch(() => {
