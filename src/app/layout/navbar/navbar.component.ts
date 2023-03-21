@@ -8,13 +8,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  routes = [
-    {
-      name: 'Dashboard',
-      path: 'dashboard',
-    },
-  ];
-
   constructor(private auth: AuthService, private router: Router) {}
 
   logout() {

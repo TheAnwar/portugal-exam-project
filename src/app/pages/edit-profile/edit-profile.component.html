@@ -20,35 +20,22 @@
             type="email"
             formControlName="username"
             placeholder="Enter Your E-mail"
-          />
-        </div>
-
-        <div class="flex flex-col mb-3">
-          <label class="font-bold text-lg" for="password"
-            >Nova palavra-passe</label
-          >
-          <input
-            class="border border-[#4472c4] p-2 w-full"
-            type="password"
-            formControlName="password"
-            placeholder="Nova palavra-passe"
-          />
-        </div>
-
-        <div class="flex flex-col mb-3">
-          <label class="font-bold text-lg" for="password">
-            Repete a tua nova palavra-passe
-          </label>
-          <input
-            class="border border-[#4472c4] p-2 w-full"
-            type="password"
-            placeholder="Repete a tua nova palavra-passe"
+            readonly
           />
         </div>
       </form>
-      <div class="flex mb-10">
+      <div class="flex mb-10 gap-4">
+        <button
+          class="button !bg-gray-400"
+          routerLink="/dashboard"
+          [queryParams]="{
+            isExisting: true
+          }"
+        >
+          Go Back
+        </button>
         <button class="button" [disabled]="isLoading">
-          {{ isLoading ? "Loading..." : "Continue" }}
+          {{ isLoading ? "Loading..." : "Save" }}
         </button>
       </div>
     </div>

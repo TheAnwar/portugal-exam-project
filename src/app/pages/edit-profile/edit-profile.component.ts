@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit-profile',
@@ -21,16 +20,7 @@ export class EditProfileComponent {
     this.form = this.fb.group({
       name: [''],
       username: [''],
-      password: [''],
     });
-
-    if (!environment.production) {
-      this.form.setValue({
-        name: 'test',
-        username: 'aib.tmkm@gmail.com',
-        password: '123456',
-      });
-    }
   }
 
   login() {
