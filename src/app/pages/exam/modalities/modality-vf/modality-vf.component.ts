@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-vf',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalityVfComponent {
   @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
 
   statements = [
     {
@@ -32,4 +33,8 @@ export class ModalityVfComponent {
   ];
 
   answers = [true, false, true, false, false];
+
+  ngOnInit() {
+    this.isValid.emit(true);
+  }
 }

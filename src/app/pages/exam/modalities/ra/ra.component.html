@@ -2,6 +2,8 @@
   <p class="mb-4">{{ type === "long" ? "Long" : "Short" }} answer</p>
 
   <textarea
+    [(ngModel)]="answer"
+    (keyup)="setValidity()"
     placeholder="Type your answer here..."
     cols="60"
     rows="8"

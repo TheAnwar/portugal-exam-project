@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-emm',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalityEmmComponent {
   @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
 
   questions = [
     {
@@ -37,5 +38,6 @@ export class ModalityEmmComponent {
 
   setAnswer(qid: any, oidx: number) {
     this.answers[qid] = oidx;
+    this.isValid.emit(true);
   }
 }

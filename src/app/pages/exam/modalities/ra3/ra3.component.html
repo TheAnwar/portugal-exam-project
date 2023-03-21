@@ -13,6 +13,7 @@
 <div class="mb-8">
   <textarea
     *ngIf="!isSubmitted"
+    [(ngModel)]="answer"
     placeholder="Type your answer here..."
     cols="60"
     rows="8"
