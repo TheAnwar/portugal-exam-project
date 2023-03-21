@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-emj',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalityEmjComponent {
   @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
 
   questions = [
     {
@@ -18,6 +19,7 @@ export class ModalityEmjComponent {
   ];
 
   answers: any = {};
+  justification: any = '';
 
   correctAns: any = {
     '1': 0,
@@ -27,11 +29,19 @@ export class ModalityEmjComponent {
 
   setAnswer(qid: any, oidx: number) {
     this.answers[qid] = oidx;
+    this.setValidity();
   }
 
   show = false;
 
   showToggle() {
     this.show = !this.show;
+  }
+
+  setValidity() {
+    // if justification and at least one answer is filled set validity to true
+    if (this.justification && Object.keys(this.answers).length > 0) {
+      this.isValid.emit(true);
+    }
   }
 }

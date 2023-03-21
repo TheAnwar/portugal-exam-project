@@ -5,7 +5,6 @@ import { SharedModule } from 'src/shared/shared.module';
 import { ChooseExamComponent } from './choose-exam/choose-exam.component';
 import { ExamComponent } from './exam.component';
 import { ExamRoutingModule } from './exam.routes';
-import { EmComponent } from './modalities/em/em.component';
 import { ModalityDdComponent } from './modalities/modality-dd/modality-dd.component';
 import { ModalityDgComponent } from './modalities/modality-dg/modality-dg.component';
 import { ModalityEmComponent } from './modalities/modality-em/modality-em.component';
@@ -24,7 +23,6 @@ import { QuestionGroupComponent } from './question-group/question-group.componen
     ExamComponent,
     QuestionGroupComponent,
     RaComponent,
-    EmComponent,
 
     Ra3Component,
     ModalityEmComponent,

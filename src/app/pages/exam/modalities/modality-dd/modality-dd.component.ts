@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-dd',
@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalityDdComponent {
   @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
 
   leftItems = [
     'I - The Phantom Menace _______',
@@ -38,6 +39,10 @@ export class ModalityDdComponent {
   answers = [3, 2, 1, 4];
 
   sorted: any[] = [...this.original];
+
+  ngOnInit() {
+    this.isValid.emit(true);
+  }
 
   drop(event: CdkDragDrop<any[]>) {
     moveItemInArray(this.sorted, event.previousIndex, event.currentIndex);

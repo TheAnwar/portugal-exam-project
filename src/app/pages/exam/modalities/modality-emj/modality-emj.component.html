@@ -24,6 +24,8 @@
 
 <div *ngIf="!isSubmitted">
   <textarea
+    [(ngModel)]="justification"
+    (keyup)="setValidity()"
     placeholder="Type your justification here..."
     cols="60"
     rows="8"

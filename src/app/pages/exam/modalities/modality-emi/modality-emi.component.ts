@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-emi',
@@ -6,6 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./modality-emi.component.scss'],
 })
 export class ModalityEmiComponent {
+  @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
+
   options = [
     { name: 'Option 1', value: 'option1' },
     { name: 'Option 2', value: 'option2' },
@@ -13,13 +16,12 @@ export class ModalityEmiComponent {
     { name: 'Option 4', value: 'option4' },
   ];
 
-  @Input() isSubmitted = false;
-
   yourAnswer!: number;
 
   correctAnswer = 2;
 
   setUserInput(i: number) {
     this.yourAnswer = i;
+    this.isValid.emit(true);
   }
 }

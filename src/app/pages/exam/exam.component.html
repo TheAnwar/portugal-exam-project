@@ -21,47 +21,90 @@
     <div>
       <div [ngSwitch]="currentModality" class="mb-10">
         <div *ngSwitchCase="'ra'">
-          <app-ra type="long" [isSubmitted]="submitted"></app-ra>
+          <app-ra
+            type="long"
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-ra>
         </div>
         <div *ngSwitchCase="'ra2'">
-          <app-ra type="short" [isSubmitted]="submitted"></app-ra>
+          <app-ra
+            type="short"
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-ra>
         </div>
         <div *ngSwitchCase="modalities[2].code">
-          <app-ra3 [isSubmitted]="submitted"></app-ra3>
+          <app-ra3
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-ra3>
         </div>
         <div *ngSwitchCase="modalities[3].code">
-          <app-em [isSubmitted]="submitted"></app-em>
+          <app-modality-em
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-em>
         </div>
         <div *ngSwitchCase="modalities[4].code">
-          <app-modality-emi [isSubmitted]="submitted"></app-modality-emi>
+          <app-modality-emi
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-emi>
         </div>
         <div *ngSwitchCase="modalities[5].code">
-          <app-modality-emj [isSubmitted]="submitted"></app-modality-emj>
+          <app-modality-emj
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-emj>
         </div>
         <div *ngSwitchCase="modalities[6].code">
-          <app-modality-emm [isSubmitted]="submitted"></app-modality-emm>
+          <app-modality-emm
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-emm>
         </div>
         <div *ngSwitchCase="modalities[7].code">
-          <app-modality-or [isSubmitted]="submitted"></app-modality-or>
+          <app-modality-or
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-or>
         </div>
         <div *ngSwitchCase="modalities[8].code">
-          <app-modality-vf [isSubmitted]="submitted"></app-modality-vf>
+          <app-modality-vf
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-vf>
         </div>
         <div *ngSwitchCase="modalities[9].code">
-          <app-modality-dg [isSubmitted]="submitted"></app-modality-dg>
+          <app-modality-dg
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-dg>
         </div>
         <div *ngSwitchCase="modalities[10].code">
-          <app-modality-dd [isSubmitted]="submitted"></app-modality-dd>
+          <app-modality-dd
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-dd>
         </div>
         <div *ngSwitchCase="modalities[11].code">
-          <app-modality-eq [isSubmitted]="submitted"></app-modality-eq>
+          <app-modality-eq
+            [isSubmitted]="submitted"
+            (isValid)="setValidity($event)"
+          ></app-modality-eq>
         </div>
 
         <div *ngSwitchDefault>modality didn't match</div>
       </div>
 
       <div class="flex items-end justify-end">
-        <button class="button" (click)="submitQuestion()" *ngIf="!submitted">
+        <button
+          [disabled]="!isValid"
+          class="button"
+          (click)="submitQuestion()"
+          *ngIf="!submitted"
+        >
           Submit Answer
         </button>
         <button

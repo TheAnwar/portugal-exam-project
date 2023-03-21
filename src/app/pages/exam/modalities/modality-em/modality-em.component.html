@@ -1,1 +1,23 @@
-<p>modality-em works!</p>
+<div class="mb-6" *ngFor="let q of questions">
+  <div
+    class="radiobtn"
+    *ngFor="let item of q.options; index as oi"
+    [ngClass]="{
+      'emi-correct': isSubmitted && oi === correctAns[q.id],
+      'emi-wrong':
+        isSubmitted &&
+        answers[q.id] !== correctAns[q.id] &&
+        oi === answers[q.id]
+    }"
+  >
+    <input
+      type="radio"
+      [disabled]="isSubmitted"
+      id="option{{ q.id }}{{ item }}"
+      name="answer{{ q.id }}"
+      value="Nasim{{ item }}"
+      (change)="setAnswer(q.id, oi)"
+    />
+    <label for="option{{ q.id }}{{ item }}"> option {{ item }} </label>
+  </div>
+</div>
