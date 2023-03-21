@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modality-eq',
@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalityEqComponent {
   @Input() isSubmitted = false;
+  @Output() isValid = new EventEmitter<boolean>();
+
+  ngOnInit() {
+    this.isValid.emit(true);
+  }
 }

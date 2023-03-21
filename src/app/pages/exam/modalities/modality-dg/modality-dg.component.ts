@@ -8,4 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ModalityDgComponent {
   @Input() isSubmitted = false;
   @Output() isValid = new EventEmitter<boolean>();
+
+  ngOnInit() {
+    this.isValid.emit(true);
+  }
 }

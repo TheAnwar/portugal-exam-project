@@ -109,10 +109,17 @@
         </button>
         <button
           class="button"
-          *ngIf="submitted"
+          *ngIf="submitted && modalities.length - 1 !== currentModalityIndex"
           (click)="navigateModality('next')"
         >
           Next question
+        </button>
+        <button
+          class="button"
+          *ngIf="submitted && modalities.length - 1 === currentModalityIndex"
+          (click)="endExam()"
+        >
+          End exam and leave
         </button>
       </div>
     </div>
