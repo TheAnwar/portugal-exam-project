@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  isLoading = false;
   form!: FormGroup;
 
   constructor(
@@ -24,6 +25,9 @@ export class LoginComponent {
 
   login() {
     const { username, password } = this.form.value;
-    this.auth.SignIn(username, password);
+    this.isLoading = true;
+    this.auth.SignIn(username, password).then((res) => {
+      this.isLoading = false;
+    });
   }
 }

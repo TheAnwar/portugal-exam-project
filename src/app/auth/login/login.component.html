@@ -26,9 +26,9 @@
         <button
           class="button text-xl"
           (click)="login()"
-          [disabled]="!form.valid"
+          [disabled]="!form.valid || isLoading"
         >
-          Keep
+          {{ isLoading ? "Loading..." : "Keep" }}
         </button>
       </div>
     </form>
