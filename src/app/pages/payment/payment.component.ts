@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-payment',
@@ -40,7 +41,7 @@ export class PaymentComponent {
 
   isChange = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private auth: AuthService) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: any) => {
@@ -69,6 +70,8 @@ export class PaymentComponent {
   }
 
   cancelSubscription() {
+    // this.auth.SignOut()
+    alert('subscription will be canceld and user will be logged out');
     console.log('cancel');
   }
 }
