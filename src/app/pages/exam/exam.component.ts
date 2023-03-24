@@ -45,7 +45,11 @@ export class ExamComponent {
   // click event on right and left arrow to navigate
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    console.log(event.key);
+    // hold shift
+    if (!event.shiftKey) {
+      return;
+    }
+
     if (event.key === 'ArrowRight') {
       this.navigateModality('next');
     } else if (event.key === 'ArrowLeft') {
