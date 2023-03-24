@@ -38,6 +38,16 @@
           {{ isLoading ? "Loading..." : "Save" }}
         </button>
       </div>
+
+      <div class="mt-20">
+        <a
+          routerLink="/payment"
+          [queryParams]="{ change: true }"
+          class="button !bg-gray-400 !rounded-lg !px-6 !py-6 cursor-pointer text-2xl"
+        >
+          Change current plan
+        </a>
+      </div>
     </div>
     <div></div>
   </div>

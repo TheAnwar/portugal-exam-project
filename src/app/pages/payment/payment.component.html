@@ -1,65 +1,130 @@
 <section *ngIf="step === 1">
-  <div class="container max-w-5xl py-10">
-    <h1 class="text-4xl font-bold text-center mb-20">Pick your plan</h1>
-    <div class="flex justify-center gap-3 mb-12">
-      <div
-        *ngFor="let item of packages; index as i"
-        class="flex-1 relative group"
-      >
-        <div
-          class="cursor-pointer flex items-center justify-center w-[50px] h-[50px] border-2 border-blue-700 shadow-2xl bg-white absolute right-1/2 top-0 z-10 translate-x-1/2 -translate-y-[90%]"
-          (click)="selectPackage(i)"
-        >
-          <span
-            class="font-bold text-4xl group-hover:block {{
-              item.selected ? '!block' : 'hidden'
+  <div class="container gap-10 py-10 flex justify-center">
+    <div *ngIf="isChange">
+      <h1 class="text-4xl font-bold text-center mb-6">
+        My current subscription
+      </h1>
+      <form class="w-full flex flex-col mb-10">
+        <div class="mb-3 flex flex-col">
+          <label class="font-bold text-lg" for="email"> Selected plan </label>
+          <input
+            class="border border-[#4472c4] p-2"
+            type="email"
+            placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames"
+            value="{{ packages[0].price }} {{ packages[0].name }} {{
+              packages[0].desc
             }}"
-            [style.color]="item.color"
-          >
-            ✓
-          </span>
+          />
         </div>
+        <div class="mb-3 flex flex-col">
+          <label class="font-bold text-lg" for="password"> In use since </label>
+          <input
+            class="border border-[#4472c4] p-2"
+            type="text"
+            placeholder="Data de subscrição"
+            value="31-02-2023"
+            readonly
+          />
+        </div>
+        <div class="flex flex-col">
+          <label class="font-bold text-lg" for="password"> Expires in </label>
+          <input
+            readonly
+            class="border border-[#4472c4] p-2"
+            type="text"
+            placeholder="Data de subscrição  + 1 mes"
+            value="Subscription date + 1 month"
+          />
+        </div>
+      </form>
 
-        <div
-          class="text-center shadow-lg border-2 pt-8 px-6 rounded-[70px] relative flex flex-col bg-white"
+      <div class="text-center">
+        <a
+          routerLink="/edit-profile"
+          class="button !bg-gray-400 font-bold cursor-pointer"
         >
-          <h3 class="text-2xl font-bold" [style.color]="item.color">
-            {{ item.name }}
-          </h3>
-          <p class="mb-4 text-sm min-h-[40px]">
-            {{ item.desc }}
-          </p>
-
-          <p [style.color]="item.color" class="font-bold mb-4">
-            <del>
-              {{ item.originalPrice }}
-            </del>
-          </p>
-          <div class="flex justify-center">
-            <button
-              [style.background-color]="item.color"
-              class="text-lg py-2 px-6 font-bold text-white rounded-full -mb-6 w-2/3"
-              (click)="selectPackage(i)"
-            >
-              {{ item.price }}
-            </button>
-          </div>
-        </div>
+          Cancel and go back
+        </a>
       </div>
     </div>
 
-    <p class="text-sm text-center mb-20">
-      * Oferta limitada aos primeiros 1,000 alunos a efetuar registo no EXA
-    </p>
-
-    <div class="flex items-center justify-center mb-10">
-      <button
-        class="bg-[#70ad47] py-2 px-8 text-white text-xl font-semibold rounded-lg"
-        routerLink="/payment"
-        [queryParams]="{ step: 2 }"
+    <div class="max-w-5xl">
+      <h1 class="text-4xl font-bold text-center my-20">Pick your plan</h1>
+      <div class="flex justify-center gap-3 mb-12">
+        <div
+          *ngFor="let item of packages; index as i"
+          class="flex-1 relative group"
+        >
+          <div
+            class="cursor-pointer flex items-center justify-center w-[50px] h-[50px] border-2 border-blue-700 shadow-2xl bg-white absolute right-1/2 top-0 z-10 translate-x-1/2 -translate-y-[90%]"
+            (click)="selectPackage(i)"
+          >
+            <span
+              class="font-bold text-4xl group-hover:block {{
+                item.selected ? '!block' : 'hidden'
+              }}"
+              [style.color]="item.color"
+            >
+              ✓
+            </span>
+          </div>
+          <div
+            class="text-center shadow-lg border-2 pt-8 px-6 rounded-[70px] relative flex flex-col bg-white"
+          >
+            <h3 class="text-2xl font-bold" [style.color]="item.color">
+              {{ item.name }}
+            </h3>
+            <p class="mb-4 text-sm min-h-[40px]">
+              {{ item.desc }}
+            </p>
+            <p [style.color]="item.color" class="font-bold mb-4">
+              <del>
+                {{ item.originalPrice }}
+              </del>
+            </p>
+            <div class="flex justify-center">
+              <button
+                [style.background-color]="item.color"
+                class="text-lg py-2 px-6 font-bold text-white rounded-full -mb-6 w-2/3"
+                (click)="selectPackage(i)"
+              >
+                {{ item.price }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm text-center mb-20">
+        * Oferta limitada aos primeiros 1,000 alunos a efetuar registo no EXA
+      </p>
+      <div class="flex items-center justify-center mb-10" *ngIf="!isChange">
+        <button
+          class="bg-[#70ad47] py-2 px-8 text-white text-xl font-semibold rounded-lg"
+          routerLink="/payment"
+          [queryParams]="{ step: 2 }"
+        >
+          Continue
+        </button>
+      </div>
+      <div
+        class="flex items-center justify-center mb-10 gap-6"
+        *ngIf="isChange"
       >
-        Continue
-      </button>
+        <button
+          routerLink="/payment"
+          [queryParams]="{ step: 2 }"
+          class="button !rounded-lg !px-6 !py-6 cursor-pointer text-2xl"
+        >
+          Pay new subscription
+        </button>
+        <button
+          routerLink="/payment"
+          [queryParams]="{ step: 3 }"
+          class="button !bg-red-500 !rounded-lg !px-6 !py-6 cursor-pointer text-2xl"
+        >
+          Cancel my subscription
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -74,51 +139,25 @@
           <label class="font-bold text-lg" for="email"
             >Plano selecionado
           </label>
-          <input
-            class="border border-[#4472c4] p-2"
-            type="email"
-            placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames"
-          />
-        </div>
 
-        <div class="mb-3 flex flex-col">
-          <label class="font-bold text-lg" for="password"
-            >Número do cartão
-          </label>
-          <input
+          <select
+            [(ngModel)]="selectedPackage"
             class="border border-[#4472c4] p-2"
-            type="text"
-            placeholder="Data de subscrição"
-          />
-        </div>
-
-        <div class="flex gap-4 mb-3">
-          <div class="flex flex-col flex-1">
-            <label class="font-bold text-lg" for="date">Data de validade</label>
-            <input class="border border-[#4472c4] p-2 w-full" type="date" />
-          </div>
-          <div class="flex flex-col flex-1">
-            <label class="font-bold text-lg" for="text">CSV</label>
-            <input class="border border-[#4472c4] p-2 w-full" type="text" />
-          </div>
-        </div>
-
-        <div class="flex flex-col">
-          <label class="font-bold text-lg" for="password">Nome no cartão</label>
-          <input
-            class="border border-[#4472c4] p-2"
-            type="text"
-            placeholder="Data de subscrição  + 1 mes"
-          />
+            name="select-package"
+          >
+            <option [value]="i" *ngFor="let item of packages; index as i">
+              {{ item.price }} {{ item.name }} {{ item.desc }}
+            </option>
+          </select>
         </div>
       </form>
 
       <div class="flex mb-10">
         <button
-          class="bg-[#70ad47] py-2 px-8 text-white text-xl font-semibold rounded-lg"
-          routerLink="/home"
+          routerLink="/payment"
+          class="button !rounded-lg !px-6 !py-6 cursor-pointer text-2xl min-w-[200px]"
         >
-          Efetuar pagamento e alterar subscrição
+          Pay
         </button>
       </div>
 
@@ -135,5 +174,34 @@
       src="/assets/images/login-img.png"
       alt="hi"
     />
+  </div>
+</section>
+
+<section *ngIf="step === 3">
+  <div class="py-20 container">
+    <img src="/assets/images/aww.png" class="h-48 mx-auto -mb-2" />
+
+    <div class="max-w-2xl bg-[#F2F2F2] shadow-2xl py-10 mx-auto">
+      <img src="/assets/images/tlogo.png" class="h-20 mx-auto mb-6" />
+
+      <div class="px-10 font-bold">
+        <h2 class="font-bold text-4xl text-center mb-10">
+          Are you sure you want to cancel your subscription?
+        </h2>
+
+        <div class="flex items-center justify-center mb-10 gap-6">
+          <button routerLink="/home" class="button !bg-red-500">
+            Yes, Cancel
+          </button>
+          <button
+            routerLink="/payment"
+            [queryParams]="{ change: true }"
+            class="button cursor-pointer"
+          >
+            No, Go back
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

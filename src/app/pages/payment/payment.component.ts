@@ -36,6 +36,10 @@ export class PaymentComponent {
     },
   ];
 
+  selectedPackage = 0;
+
+  isChange = false;
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -46,10 +50,15 @@ export class PaymentComponent {
       } else {
         this.step = 1;
       }
+
+      if (params.change) {
+        this.isChange = true;
+      }
     });
   }
 
   selectPackage(index: number) {
+    this.selectedPackage = index;
     this.packages.forEach((p, i) => {
       if (i === index) {
         this.packages[i].selected = true;
@@ -57,5 +66,9 @@ export class PaymentComponent {
         this.packages[i].selected = false;
       }
     });
+  }
+
+  cancelSubscription() {
+    console.log('cancel');
   }
 }
