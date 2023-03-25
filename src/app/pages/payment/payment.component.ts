@@ -24,7 +24,7 @@ export class PaymentComponent {
       desc: '2 Disciplinas | 20 Exames | 1 Meses',
       originalPrice: '19,99€/mês',
       price: '14,99€/mês*',
-      color: '#a6a6a6',
+      color: '#7EAB55',
       selected: false,
     },
     {
@@ -32,7 +32,7 @@ export class PaymentComponent {
       desc: 'Todas as Disciplinas | Todos os exames | 1 Mês',
       originalPrice: '29,99€/mês',
       price: '24,99€/mês*',
-      color: '#70ad47',
+      color: '#2254C9',
       selected: false,
     },
   ];

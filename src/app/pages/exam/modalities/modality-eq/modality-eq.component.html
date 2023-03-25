@@ -1,4 +1,4 @@
-<div class="flex items-center gap-4">
+<div class="flex items-center gap-4" *ngIf="!isSubmitted">
   <div
     #editableArea
     contenteditable
@@ -22,5 +22,29 @@
     >
       Sub<sub>x</sub>
     </button>
+  </div>
+</div>
+
+<div *ngIf="isSubmitted">
+  <div class="pt-5">
+    <h5 class="text-[#629fd7]">Correction criteria</h5>
+    <p>
+      <span>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo,
+        error tempore. Obcaecati, recusandae. Magni, praesentium laudantium
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+      <span>
+        sapiente consequatur impedit autem, totam quidem quasi, et odit amet
+        deleniti consectetur facilis consequuntur.
+      </span>
+    </p>
   </div>
 </div>
