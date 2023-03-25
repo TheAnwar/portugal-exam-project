@@ -29,6 +29,8 @@ $darkcolor: #444;
       height: 20px;
       border-radius: 3px;
       background: lighten($accentcolor, 15%);
+      top: 50%;
+      transform: translateY(-50%);
     }
     &:before {
       background: transparent;
@@ -44,7 +46,8 @@ $darkcolor: #444;
       background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+);
     }
   }
-  input[type="radio"] {
+  input[type="radio"],
+  input[type="checkbox"] {
     display: none;
     position: absolute;
     width: 100%;

@@ -14,7 +14,12 @@ export class ModalityEmComponent {
       id: '1',
       title:
         '(A) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie Curie',
-      options: ['ans 1', 'ans 2', 'ans 3', 'ans 4'],
+      options: [
+        'ans 1 (A) No seculo passado, a Fundacao Nobel ____________ dois premios a Marie Curie',
+        'ans 2',
+        'ans 3',
+        'ans 4',
+      ],
     },
   ];
 
