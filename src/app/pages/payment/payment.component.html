@@ -11,9 +11,9 @@
             class="border border-[#4472c4] p-2"
             type="email"
             placeholder="Premium (14,99€/mês*) 2 disciplinas | 20 exames"
-            value="{{ packages[0].price }} {{ packages[0].name }} {{
-              packages[0].desc
-            }}"
+            value="{{ packages[selectedPackage].price }} {{
+              packages[selectedPackage].name
+            }} {{ packages[selectedPackage].desc }}"
           />
         </div>
         <div class="mb-3 flex flex-col">
