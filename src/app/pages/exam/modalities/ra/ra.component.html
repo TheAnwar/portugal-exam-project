@@ -6,8 +6,8 @@
     (keyup)="setValidity()"
     placeholder="Type your answer here..."
     cols="60"
-    rows="8"
-    class="w-full h-36 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
+    [rows]="type === 'long' ? 12 : 4"
+    class="w-full py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
   ></textarea>
 
   <div *ngIf="isSubmitted">
