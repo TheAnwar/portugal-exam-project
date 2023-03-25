@@ -46,7 +46,7 @@ export class ExamComponent {
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     // hold shift
-    if (!event.shiftKey) {
+    if (!event.altKey) {
       return;
     }
 
