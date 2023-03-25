@@ -1,28 +1,33 @@
-<div class="flex items-center gap-4" *ngIf="!isSubmitted">
-  <div
-    #editableArea
-    contenteditable
-    (keyup)="onAnswerChange($event)"
-    cols="70"
-    rows="8"
-    class="w-full h-24 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
-    [innerHTML]="answer"
-  ></div>
-  <div class="flex flex-col items-end">
-    <button
-      class="bg-[#4472c4] rounded-md text-white py-2 px-12"
-      (click)="onAddScript('sup')"
-    >
-      Sup<sup>x</sup>
-    </button>
-    <button
-      class="bg-[#4472c4] rounded-md text-white py-2 px-12 mt-4"
-      (click)="onAddScript('sub')"
-    >
-      Sub<sub>x</sub>
-    </button>
+<section *ngIf="!isSubmitted">
+  <div class="flex items-center gap-4">
+    <div
+      #editableArea
+      contenteditable
+      (keyup)="onAnswerChange($event)"
+      cols="70"
+      rows="8"
+      class="w-full h-24 py-3 px-5 box-border bg-[#deebf7] overflow-scroll"
+      [innerHTML]="answer"
+    ></div>
+    <div class="flex flex-col items-end">
+      <button
+        class="bg-[#4472c4] rounded-md text-white py-2 px-12"
+        (click)="onAddScript('sup')"
+      >
+        Sup<sup>x</sup>
+      </button>
+      <button
+        class="bg-[#4472c4] rounded-md text-white py-2 px-12 mt-4"
+        (click)="onAddScript('sub')"
+      >
+        Sub<sub>x</sub>
+      </button>
+    </div>
   </div>
-</div>
+  <div>
+    <i class="text-xs">Press right arrow key to write normal text</i>
+  </div>
+</section>
 
 <div *ngIf="isSubmitted">
   <div class="pt-5 mb-5">

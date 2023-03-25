@@ -59,7 +59,7 @@ export class ModalityEqComponent {
     // selection.collapse(span, 0);
   }
 
-  onAnswerChange(e: KeyboardEvent | null) {
+  onAnswerChange(e: KeyboardEvent | null): any {
     e?.preventDefault();
     // console.log(e);
     if (e?.key === 'ArrowRight') {
@@ -74,6 +74,12 @@ export class ModalityEqComponent {
       const offset = range.startOffset;
       if (node.nodeType === Node.TEXT_NODE) {
         if (offset === node.textContent?.length) {
+          // if node.textContent ends with </span> return false
+          console.log(node.textContent);
+          if (node.textContent.endsWith('\uFEFF')) {
+            return false;
+          }
+
           // add span inside the e.target
           const span = document.createElement('span');
           const empty = document.createTextNode('\uFEFF');
