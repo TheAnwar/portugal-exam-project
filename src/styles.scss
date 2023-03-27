@@ -12,3 +12,7 @@
   // disabled
   @apply disabled:bg-[#c6e0b4] disabled:cursor-not-allowed;
 }
+
+.right-bg {
+  @apply fixed right-0 top-4 -z-10;
+}
