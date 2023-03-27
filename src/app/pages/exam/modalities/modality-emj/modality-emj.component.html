@@ -11,7 +11,7 @@
     }"
   >
     <input
-      type="radio"
+      [type]="isMultiple ? 'checkbox' : 'radio'"
       [disabled]="isSubmitted"
       id="option{{ q.id }}{{ item }}"
       name="answer{{ q.id }}"

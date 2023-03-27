@@ -8,6 +8,7 @@ $darkcolor: #444;
   font-size: 15px;
 }
 .radiobtn {
+  border-radius: 5px;
   position: relative;
   display: block;
   label {
@@ -73,19 +74,19 @@ $incorrect: red;
 
 .emi-correct.radiobtn {
   label {
-    background: lighten($correct, 30%);
-    border: 2px solid lighten($correct, 20%);
+    background: lighten($correct, 30%) !important;
+    border: 2px solid lighten($correct, 20%) !important;
     &:after,
     &:before {
-      background: lighten($correct, 15%);
+      background: lighten($correct, 15%) !important;
     }
   }
   input[type="radio"] {
     &:checked + label {
-      background: lighten($correct, 15%);
-      border-color: $correct;
+      background: lighten($correct, 15%) !important;
+      border-color: $correct !important;
       &:after {
-        background: $correct;
+        background: $correct !important;
       }
     }
   }
@@ -93,19 +94,19 @@ $incorrect: red;
 
 .emi-wrong.radiobtn {
   label {
-    background: lighten($incorrect, 30%);
-    border: 2px solid lighten($incorrect, 20%);
+    background: lighten($incorrect, 30%) !important;
+    border: 2px solid lighten($incorrect, 20%) !important;
     &:after,
     &:before {
-      background: lighten($incorrect, 15%);
+      background: lighten($incorrect, 15%) !important;
     }
   }
   input[type="radio"] {
     &:checked + label {
-      background: lighten($incorrect, 15%);
-      border-color: $incorrect;
+      background: lighten($incorrect, 15%) !important;
+      border-color: $incorrect !important;
       &:after {
-        background: $incorrect;
+        background: $incorrect !important;
       }
     }
   }

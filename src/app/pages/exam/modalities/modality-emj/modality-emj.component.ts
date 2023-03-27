@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./modality-emj.component.scss'],
 })
 export class ModalityEmjComponent {
+  @Input() isMultiple = false;
   @Input() isSubmitted = false;
   @Output() isValid = new EventEmitter<boolean>();
 
