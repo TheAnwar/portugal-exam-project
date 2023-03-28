@@ -3,11 +3,8 @@
     class="radiobtn"
     *ngFor="let item of q.options; index as oi"
     [ngClass]="{
-      'emi-correct': isSubmitted && oi === correctAns[q.id],
-      'emi-wrong':
-        isSubmitted &&
-        answers[q.id] !== correctAns[q.id] &&
-        oi === answers[q.id]
+      'emi-correct': isCorrect(q.id, oi),
+      'emi-wrong': isWrong(q.id, oi)
     }"
   >
     <input
