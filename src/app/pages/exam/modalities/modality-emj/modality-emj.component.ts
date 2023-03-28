@@ -23,14 +23,40 @@ export class ModalityEmjComponent {
   justification: any = '';
 
   correctAns: any = {
-    '1': 0,
-    '2': 2,
-    '3': 1,
+    '1': [0, 1],
+    '2': [2],
+    '3': [1],
   };
 
   setAnswer(qid: any, oidx: number) {
-    this.answers[qid] = oidx;
+    if (this.answers[qid]) {
+      // before adding check if the answer is already present
+      if (this.answers[qid].includes(oidx)) {
+        this.answers[qid] = this.answers[qid].filter((a: any) => a !== oidx);
+      } else {
+        this.answers[qid].push(oidx);
+      }
+    } else {
+      this.answers[qid] = [oidx];
+    }
     this.setValidity();
+  }
+
+  isCorrect(qid: any, oidx: number) {
+    if (this.isSubmitted && this.correctAns[qid]) {
+      return this.correctAns[qid].includes(oidx);
+    }
+    return false;
+  }
+
+  isWrong(qid: any, oidx: number) {
+    if (this.isSubmitted && this.correctAns[qid]) {
+      return (
+        !this.correctAns[qid].includes(oidx) &&
+        this.answers[qid]?.includes(oidx)
+      );
+    }
+    return false;
   }
 
   show = false;

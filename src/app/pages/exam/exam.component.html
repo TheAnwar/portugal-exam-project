@@ -61,6 +61,7 @@
         </div>
         <div *ngSwitchCase="modalities[6].code">
           <app-modality-emm
+            [isMultiple]="true"
             [isSubmitted]="submitted"
             (isValid)="setValidity($event)"
           ></app-modality-emm>

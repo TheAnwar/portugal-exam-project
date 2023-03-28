@@ -22,7 +22,7 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'emj';
+  currentModality = 'emm';
   submitted: boolean = false;
   isValid: boolean = false;
 
