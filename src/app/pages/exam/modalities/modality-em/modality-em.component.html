@@ -9,7 +9,7 @@
   >
     <input
       type="checkbox"
-      [disabled]="isSubmitted"
+      [disabled]="isDisabled(q.id, oi)"
       id="option{{ q.id }}{{ item }}"
       name="answer{{ q.id }}"
       value="Nasim{{ item }}"

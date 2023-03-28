@@ -67,4 +67,15 @@ export class ModalityEmmComponent {
     }
     return false;
   }
+
+  isDisabled(qid: any, oidx: number) {
+    if (this.isSubmitted) return true;
+
+    // disable if number of options already selected is equal to correctAns
+    if (this.answers[qid]?.length === this.correctAns[qid]?.length) {
+      return !this.answers[qid]?.includes(oidx);
+    } else {
+      return false;
+    }
+  }
 }
