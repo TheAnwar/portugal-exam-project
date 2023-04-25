@@ -1,7 +1,7 @@
 <nav class="border-gray-200 px-2 sm:px-4 py-2.5 bg-primary">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a routerLink="/" class="flex items-center">
-      <img src="/assets/images/logo.png" class="h-28 sm:h-9" alt="EXA Logo" />
+      <img src="/assets/images/logo.png" class="h-9" alt="EXA Logo" />
       <!-- <span
         class="self-center text-xl font-semibold whitespace-nowrap text-white"
         >
@@ -10,6 +10,7 @@
       -->
     </a>
     <button
+      (click)="showMenu = !showMenu"
       data-collapse-toggle="navbar-default"
       type="button"
       class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
@@ -31,7 +32,11 @@
         ></path>
       </svg>
     </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+    <div
+      class="hidden w-full md:block md:w-auto"
+      id="navbar-default"
+      [ngClass]="{ '!block': showMenu }"
+    >
       <ul
         class="flex flex-col border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0"
       >
@@ -41,6 +46,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
             class="block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+            (click)="showMenu = false"
           >
             Dashboard
           </a>
@@ -49,6 +55,7 @@
           <button
             (click)="logout()"
             class="block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-gray-400 md:hover:text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+            (click)="showMenu = false"
           >
             Log out
           </button>

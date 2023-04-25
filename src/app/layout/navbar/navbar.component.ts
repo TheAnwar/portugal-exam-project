@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  showMenu = false;
+
   constructor(private auth: AuthService, private router: Router) {}
 
   logout() {
