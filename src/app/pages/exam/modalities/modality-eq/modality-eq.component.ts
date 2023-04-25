@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./modality-eq.component.scss'],
 })
 export class ModalityEqComponent {
-  @ViewChild('editableArea', { static: true }) editableArea: any;
+  @ViewChild('editableArea', { static: false }) editableArea: any;
 
   @Input() isSubmitted = false;
   @Output() isValid = new EventEmitter<boolean>();
@@ -21,14 +21,15 @@ export class ModalityEqComponent {
   answer = '';
   correctAnswer = 'This is a <sup>abc</sup> and this is a <sub>def</sub>';
 
+  ngOnChanges() {
+    if (this.isSubmitted) {
+      this.answer = this.editableArea.nativeElement?.innerHTML;
+    }
+  }
+
   ngOnInit() {
     console.log(this.editableArea);
     this.isValid.emit(true);
-
-    if (!environment.production) {
-      this.answer =
-        'This is a <sup contenteditable="false">superscript</sup> and this is a <sub contenteditable="false">subscript</sub>';
-    }
   }
 
   onAddScript(s: 'sub' | 'sup') {

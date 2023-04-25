@@ -22,15 +22,13 @@ export class ExamComponent {
     { name: 'EQ', code: 'eq' },
   ];
 
-  currentModality = 'em';
+  currentModality = 'eq';
   submitted: boolean = false;
   isValid: boolean = false;
 
   constructor(private router: Router) {}
 
   navigateModality(direction: 'next' | 'prev') {
-    this.submitted = false;
-    this.isValid = false;
     const currentIndex = this.currentModalityIndex;
     const nextIndex =
       direction === 'next' ? currentIndex + 1 : currentIndex - 1;
@@ -38,6 +36,9 @@ export class ExamComponent {
     if (nextIndex < 0 || nextIndex >= this.modalities.length) {
       return;
     }
+
+    this.submitted = false;
+    this.isValid = false;
 
     this.currentModality = this.modalities[nextIndex].code;
   }
